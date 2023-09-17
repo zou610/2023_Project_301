@@ -27,14 +27,32 @@
 void usbPutString(char *s);
 void usbPutChar(char c);
 void handle_usb();
+
+enum Position_State detect_position();
+enum Motion_State decide_motion(enum Position_State p_state);
+void movement(enum Motion_State motion);
+void M1_set_speed(int8 num);
+void M2_set_speed(int8 num);
+void motor_forward();
+void motor_backward();
 //* ========================================
-volatile int8 flag_encoder = 0;
-enum Sport_State {
-  FORWARD, LEFT, RIGHT, BACK
+enum Motion_State {
+    FORWARD,
+    LEFT, 
+    RIGHT, 
+    BACK,
+    STOP
 };
 enum Position_State {
-  STRAIGHT, CROSS
+    STRAIGHT, 
+    RIGHTCROSS, // Right
+    LEFTCROSS,  // Left
+    TENCROSS,   // X
+    THIRDCROSS  // T
 };
+//* ========================================
+volatile int8 flag_encoder = 0;
+volatile enum Position_State last_position_state = STRAIGHT;
 //* ========================================
 CY_ISR(isr_timer_EncoderCalculation){
     flag_encoder = 1;
@@ -47,8 +65,12 @@ int main()
     CYGlobalIntEnable;
     PWM_1_Start();
     PWM_2_Start();
+    PWM_1_Sleep();
+    PWM_2_Sleep();
+    
     QuadDec_M1_Start();
     QuadDec_M2_Start();
+    
     Timer_TS_Start();
     isr_TS_StartEx(isr_timer_EncoderCalculation);
     
@@ -59,15 +81,16 @@ int main()
     USBUART_Start(0,USBUART_5V_OPERATION);
 #endif        
     QuadDec_M1_SetCounter(0);
+    QuadDec_M2_SetCounter(0);
     
     RF_BT_SELECT_Write(0);
     usbPutString(displaystring);
     
     for(;;)
     {
-        /* encoder calculation*/
+        /* encoder calculation - output the Revolution of output shaft*/
         if(flag_encoder) {
-            encoder_counter = (double) QuadDec_M1_GetCounter() / 57; // timer - 100ms
+            encoder_counter = (double) QuadDec_M1_GetCounter() / 228; // timer - 1s
             sprintf(line, "%.2lf", encoder_counter); 
             
             usbPutString(message_encoder);
@@ -78,8 +101,13 @@ int main()
             flag_encoder = 0;
         }
         
+        // movement
+        movement(decide_motion(detect_position()));
+        
         /* Place your application code here. */
         handle_usb();
+        
+        /* Input a integer to change PWM */
         if (flag_KB_string == 1)
         {
             usbPutString(line);
@@ -87,7 +115,7 @@ int main()
             if (atoi(line)){
                 PWM_1_WriteCompare((double)(PWM_1_ReadPeriod()* (100 - atoi(line))) / 100);
                 PWM_1_SaveConfig();
-                usbPutString("\t Custom input used\n\r");
+                usbPutString("\tCustom input used\n\r");
             }            
             
             flag_KB_string = 0;
@@ -171,6 +199,118 @@ void handle_usb()
     }    
 }
 //* ========================================
-
-
+enum Position_State detect_position() {
+    if (Vo1_Read() & !Vo2_Read() & !Vo3_Read() & !Vo4_Read() & Vo5_Read() & !Vo6_Read()) {
+        return RIGHTCROSS;
+    }
+    if (Vo1_Read() & !Vo2_Read() & !Vo3_Read() & !Vo4_Read() & !Vo5_Read() & Vo6_Read()) {
+        return LEFTCROSS;
+    }
+    // STRAIGHT
+    if (!Vo1_Read() & !Vo2_Read() & !Vo3_Read() & !Vo4_Read() & Vo5_Read() & Vo6_Read()) {
+        return STRAIGHT;// 1 2 3 4 - dark, normal straight
+    }
+    if (!Vo1_Read() & !Vo2_Read() & !Vo3_Read() & Vo4_Read() & Vo5_Read() & Vo6_Read()) {
+        return STRAIGHT; // 1 2 3 - dark, turning done
+    }
+    
+    return last_position_state;
+}
+//* ========================================
+enum Motion_State decide_motion(enum Position_State p_state) {
+    if (p_state == RIGHTCROSS) {return RIGHT;}
+    if (p_state == LEFTCROSS) {return LEFT;}
+    if (p_state == STRAIGHT) {return FORWARD;}
+    return STOP;
+}
+//* ========================================
+void movement(enum Motion_State motion) {
+    if (motion == FORWARD) {
+        PWM_1_Enable();
+        PWM_2_Enable();
+        
+        M1_set_speed(50);
+        M2_set_speed(50);
+        // Direction        
+        motor_forward();
+    }
+    
+    if (motion == BACK) {
+        PWM_1_Enable();
+        PWM_2_Enable();
+        
+        M1_set_speed(50);
+        M2_set_speed(50);
+        // Direction
+        motor_backward();
+    }
+    
+    if (motion == RIGHT) {
+        PWM_1_Enable();
+        PWM_2_Enable();
+        // Differential Speed
+        M1_set_speed(80);
+        M2_set_speed(10);
+        // Direction
+        motor_forward();
+        
+        
+    }
+    
+    if (motion == LEFT) {
+        PWM_1_Enable();
+        PWM_2_Enable();
+        // Differential Speed
+        M1_set_speed(10);
+        M2_set_speed(80);
+        // Direction
+        motor_forward();
+    }
+    
+    if (motion == STOP) {
+        PWM_1_Sleep();
+        PWM_2_Sleep();
+    }    
+}
+//* ========================================
+void M1_set_speed(int8 num) {
+    if (num > 100) {
+        num = 100;
+    }
+    if (num < 0) {
+        num = 0;
+    }
+    PWM_1_WriteCompare((double)(PWM_1_ReadPeriod()* (100 - num)) / 100);
+    PWM_1_SaveConfig();
+    usbPutString("M1 speed changed\n\r");    
+};
+//* ========================================
+void M2_set_speed(int8 num) {
+    if (num > 100) {
+        num = 100;
+    }
+    if (num < 0) {
+        num = 0;
+    }
+    PWM_2_WriteCompare((double)(PWM_2_ReadPeriod()* (100 - num)) / 100);
+    PWM_2_SaveConfig();
+    usbPutString("M2 speed changed\n\r");   
+};
+//* ========================================
+void motor_forward() {
+    // set motor 1 direction - IN1 - high
+    M1_IN1_Write(1);
+    M1_IN2_Write(0);
+    // set motor 2 direction - IN1 - high
+    M2_IN1_Write(1);
+    M2_IN2_Write(0);
+};
+void motor_backward() {
+    // set motor 1 direction - IN1 - low
+    M1_IN1_Write(0);
+    M1_IN2_Write(1);
+    // set motor 2 direction - IN1 - low
+    M2_IN1_Write(0);
+    M2_IN2_Write(1);
+};
 /* [] END OF FILE */

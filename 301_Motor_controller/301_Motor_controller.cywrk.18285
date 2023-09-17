@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="301_Motor_controller\Design_301_project\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>301_Motor_controller</v>
 <v>301_Motor_controller\Design_301_project</v>
@@ -42,7 +42,6 @@
 <v>301_Motor_controller\Design_301_project\Header Files\vars.h</v>
 <v>301_Motor_controller\Design_301_project\Source Files</v>
 <v>301_Motor_controller\Design_301_project\Source Files\main.c</v>
-<v>301_Motor_controller\Design_301_project\Source Files\tacho.c</v>
 <v>301_Motor_controller\Design_301_project\Generated_Source</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
@@ -70,24 +69,6 @@
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A0.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A1.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A2.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A3.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A4.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A5.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A6.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A7.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_FinalBuf_dma.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IntClock.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_TempBuf_dma.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_QENC.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock2.lst</v>
@@ -107,7 +88,6 @@
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_eoc.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_TS.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\isrRF_RX.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\isrRF_TX.lst</v>
@@ -137,7 +117,6 @@
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_PM.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\RF_BT_SELECT.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\RF_BT_SELECT_PM.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\tacho.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_TS.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_TS_PM.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
@@ -175,25 +154,25 @@
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A0.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A1.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A2.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A3.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A4.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A5.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A6.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\A7.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_FinalBuf_dma.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IntClock.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_TempBuf_dma.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_QENC.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock2.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL_PM.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
+<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -209,7 +188,6 @@
 <v>301_Motor_controller\Design_301_project\CY8C58LP Family Datasheet</v>
 <v>301_Motor_controller\Design_301_project\System Reference Guides</v>
 <v>301_Motor_controller\Design_301_project\System Reference Guides\cy_boot_v6_10</v>
-<v>301_Motor_controller\Design_301_project\ADC_SAR_SEQ_v2_10.pdf</v>
 <v>301_Motor_controller\Design_301_project\cy_clock_v2_20</v>
 <v>301_Motor_controller\Design_301_project\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
 <v>301_Motor_controller\Design_301_project\cy_constant_v1_0.pdf</v>
@@ -220,8 +198,6 @@
 <v>301_Motor_controller\Design_301_project\CyControlReg_v1_80</v>
 <v>301_Motor_controller\Design_301_project\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
 <v>301_Motor_controller\Design_301_project\mux_v1_10.pdf</v>
-<v>301_Motor_controller\Design_301_project\not_v1_0</v>
-<v>301_Motor_controller\Design_301_project\not_v1_0\not_v1_0.pdf</v>
 <v>301_Motor_controller\Design_301_project\PWM_v3_30</v>
 <v>301_Motor_controller\Design_301_project\PWM_v3_30\PWM_v3_30.pdf</v>
 <v>301_Motor_controller\Design_301_project\QuadDec_v3_0</v>
@@ -238,7 +214,6 @@
 <v>301_Motor_controller\Design_301_project\CY8C58LP Family Datasheet</v>
 <v>301_Motor_controller\Design_301_project\System Reference Guides</v>
 <v>301_Motor_controller\Design_301_project\System Reference Guides\cy_boot_v6_10</v>
-<v>301_Motor_controller\Design_301_project\ADC_SAR_SEQ_v2_10.pdf</v>
 <v>301_Motor_controller\Design_301_project\cy_clock_v2_20</v>
 <v>301_Motor_controller\Design_301_project\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
 <v>301_Motor_controller\Design_301_project\cy_constant_v1_0.pdf</v>
@@ -249,14 +224,14 @@
 <v>301_Motor_controller\Design_301_project\CyControlReg_v1_80</v>
 <v>301_Motor_controller\Design_301_project\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
 <v>301_Motor_controller\Design_301_project\mux_v1_10.pdf</v>
-<v>301_Motor_controller\Design_301_project\not_v1_0</v>
-<v>301_Motor_controller\Design_301_project\not_v1_0\not_v1_0.pdf</v>
 <v>301_Motor_controller\Design_301_project\PWM_v3_30</v>
 <v>301_Motor_controller\Design_301_project\PWM_v3_30\PWM_v3_30.pdf</v>
 <v>301_Motor_controller\Design_301_project\QuadDec_v3_0</v>
 <v>301_Motor_controller\Design_301_project\QuadDec_v3_0\QuadDec_v3_0.pdf</v>
 <v>301_Motor_controller\Design_301_project\Timer_v2_80.pdf</v>
 <v>301_Motor_controller\Design_301_project\UART_v2_50.pdf</v>
+<v>301_Motor_controller\Design_301_project\USBFS_v3_20.pdf</v>
+<v>301_Motor_controller\Design_301_project\ZeroTerminal.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -271,11 +246,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Design_301_project.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Design_301_project.cydsn\Design_301_project.cydwr" />
+<name v=".\Design_301_project.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Design_301_project.cydsn\main.c" />
-<name v=".\Design_301_project.cydsn\defines.h" />
-<name v=".\Design_301_project.cydsn\vars.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -283,7 +256,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1035, 429" SelectedTabbedMdiWindow="10de866f-af89-48b9-a9f3-74f7158a9d42"><DocumentWindow Key="C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch" Guid="10de866f-af89-48b9-a9f3-74f7158a9d42" /><DocumentWindow Key="C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\Design_301_project.cydwr" Guid="0b03d2a0-742b-4352-9e61-6158a2ce9bfc" /><DocumentWindow Key="C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\main.c" Guid="fd315c81-a54b-4225-b925-f237e0305c36" /><DocumentWindow Key="C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\defines.h" Guid="d5825ee7-0bfa-4977-a80f-729a07037629" /><DocumentWindow Key="C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\vars.h" Guid="dd0c5cbe-d80a-431f-8aac-debd3915bb54" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1003, 515" SelectedTabbedMdiWindow="31202c65-bfc7-4a0b-b11f-846231e20374"><DocumentWindow Key="C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\Design_301_project.cydwr" Guid="428dc8b4-65a8-4212-b89c-3beb7908e608" /><DocumentWindow Key="C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch" Guid="10de866f-af89-48b9-a9f3-74f7158a9d42" /><DocumentWindow Key="C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\main.c" Guid="31202c65-bfc7-4a0b-b11f-846231e20374" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
