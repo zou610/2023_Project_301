@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8bb7e4e2-ad63-43bf-be0e-6957901afa08
+C:\Users\18285\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|34ba3b29-88e6-4802-a2cc-e61bc8cc8949
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9e6d05f4-899a-4b87-b249-5ccd3d7ee584
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b4129cae-02e0-44fc-bfb8-3d5da8238ae6
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|319eee0a-d875-4019-a2b6-c2b94453c170
+C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\Design_301_project.cyprj|e56123a7-d0a4-43ca-83ea-2bae62d451f4
+C:\Users\18285\Desktop\301\psoc student pack\psoc student pack zip 1\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj|72e92223-6123-4042-af4b-39155caeac44

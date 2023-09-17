@@ -1,0 +1,45 @@
+--------------- Build Started: 09/16/2023 19:03:54 Project: Design_301_project, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\18285\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\Design_301_project.cyprj -d CY8C5888LTI-LP097 -s C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0025: error: No input on Instance "M1_EN", terminal "y_0".
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_287)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_18.2)
+ADD: sdb.M0050: error: Terminal "y_0" requires connection when it is visible.
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_287)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_18.2)
+ADD: sdb.M0025: error: No input on Instance "M1_C1", terminal "y_0".
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_288)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_19.2)
+ADD: sdb.M0050: error: Terminal "y_0" requires connection when it is visible.
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_288)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_19.2)
+ADD: sdb.M0025: error: No input on Instance "M1_C2", terminal "y_0".
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_289)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_20.2)
+ADD: sdb.M0050: error: Terminal "y_0" requires connection when it is visible.
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_289)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_20.2)
+ADD: sdb.M0025: error: No input on Instance "M2_C1", terminal "y_0".
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_291)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_22.2)
+ADD: sdb.M0050: error: Terminal "y_0" requires connection when it is visible.
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_291)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_22.2)
+ADD: sdb.M0025: error: No input on Instance "M2_EN", terminal "y_0".
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_290)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_21.2)
+ADD: sdb.M0050: error: Terminal "y_0" requires connection when it is visible.
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_290)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_21.2)
+ADD: sdb.M0025: error: No input on Instance "M2_C2", terminal "y_0".
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_292)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_23.2)
+ADD: sdb.M0050: error: Terminal "y_0" requires connection when it is visible.
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Signal: Net_292)
+ * C:\Users\18285\Desktop\301\Project\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch (Shape_23.2)
+ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_10 is unconnected.
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Signal: vdac_ref)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_798)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_885)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Build Failed: 09/16/2023 19:04:01 ---------------
