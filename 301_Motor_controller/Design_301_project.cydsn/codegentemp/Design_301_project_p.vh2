@@ -1,5 +1,5 @@
 -- Project:   Design_301_project
--- Generated: 09/18/2023 17:54:31
+-- Generated: 09/19/2023 22:28:17
 -- PSoC Creator  4.4
 
 ENTITY Design_301_project IS
@@ -333,24 +333,26 @@ ARCHITECTURE __DEFAULT__ OF Design_301_project IS
     ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell_ireg";
     ATTRIBUTE lib_model OF M1_IN1(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF M1_IN1(0) : LABEL IS "P3[5]";
-    ATTRIBUTE lib_model OF DB0(0) : LABEL IS "iocell13";
+    ATTRIBUTE lib_model OF LED(0) : LABEL IS "iocell13";
+    ATTRIBUTE Location OF LED(0) : LABEL IS "P2[1]";
+    ATTRIBUTE lib_model OF DB0(0) : LABEL IS "iocell14";
     ATTRIBUTE Location OF DB0(0) : LABEL IS "P3[0]";
-    ATTRIBUTE lib_model OF DB1(0) : LABEL IS "iocell14";
+    ATTRIBUTE lib_model OF DB1(0) : LABEL IS "iocell15";
     ATTRIBUTE Location OF DB1(0) : LABEL IS "P3[1]";
-    ATTRIBUTE lib_model OF DB2(0) : LABEL IS "iocell15";
+    ATTRIBUTE lib_model OF DB2(0) : LABEL IS "iocell16";
     ATTRIBUTE Location OF DB2(0) : LABEL IS "P3[6]";
     ATTRIBUTE lib_model OF Rx_2(0) : LABEL IS "iocell_ireg";
-    ATTRIBUTE lib_model OF Vo6(0) : LABEL IS "iocell16";
+    ATTRIBUTE lib_model OF Vo6(0) : LABEL IS "iocell17";
     ATTRIBUTE Location OF Vo6(0) : LABEL IS "P1[7]";
-    ATTRIBUTE lib_model OF Vo1(0) : LABEL IS "iocell17";
+    ATTRIBUTE lib_model OF Vo1(0) : LABEL IS "iocell18";
     ATTRIBUTE Location OF Vo1(0) : LABEL IS "P0[5]";
-    ATTRIBUTE lib_model OF Vo2(0) : LABEL IS "iocell18";
+    ATTRIBUTE lib_model OF Vo2(0) : LABEL IS "iocell19";
     ATTRIBUTE Location OF Vo2(0) : LABEL IS "P0[6]";
-    ATTRIBUTE lib_model OF Vo5(0) : LABEL IS "iocell19";
+    ATTRIBUTE lib_model OF Vo5(0) : LABEL IS "iocell20";
     ATTRIBUTE Location OF Vo5(0) : LABEL IS "P1[6]";
-    ATTRIBUTE lib_model OF Vo3(0) : LABEL IS "iocell20";
+    ATTRIBUTE lib_model OF Vo3(0) : LABEL IS "iocell21";
     ATTRIBUTE Location OF Vo3(0) : LABEL IS "P0[7]";
-    ATTRIBUTE lib_model OF Vo4(0) : LABEL IS "iocell21";
+    ATTRIBUTE lib_model OF Vo4(0) : LABEL IS "iocell22";
     ATTRIBUTE Location OF Vo4(0) : LABEL IS "P1[5]";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";

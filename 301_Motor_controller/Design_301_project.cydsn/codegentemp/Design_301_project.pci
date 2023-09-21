@@ -1,5 +1,5 @@
 # Design_301_project
-# 2023-09-18 05:54:31Z
+# 2023-09-19 10:28:17Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -19,6 +19,7 @@ set_io "M1_IN2(0)" iocell 3 4
 set_io "\USBUART:Dm(0)\" iocell 15 7
 set_io "\USBUART:Dp(0)\" iocell 15 6
 set_io "M1_IN1(0)" iocell 3 5
+set_io "LED(0)" iocell 2 1
 set_io "DB0(0)" iocell 3 0
 set_io "DB1(0)" iocell 3 1
 set_io "DB2(0)" iocell 3 6

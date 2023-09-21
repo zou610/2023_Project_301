@@ -2,7 +2,7 @@
 --	Conversion of Design_301_project.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Sep 18 17:54:29 2023
+--	Tue Sep 19 22:28:16 2023
 --
 
 USE cypress.cypress.all;
@@ -250,7 +250,7 @@ SIGNAL \QuadDec_M1:bQuadDec:status_3\ : bit;
 SIGNAL \QuadDec_M1:bQuadDec:status_4\ : bit;
 SIGNAL \QuadDec_M1:bQuadDec:status_5\ : bit;
 SIGNAL \QuadDec_M1:bQuadDec:status_6\ : bit;
-SIGNAL Net_3 : bit;
+SIGNAL Net_312 : bit;
 SIGNAL \QuadDec_M1:Net_1151\ : bit;
 SIGNAL \QuadDec_M1:Net_1248\ : bit;
 SIGNAL \QuadDec_M1:Net_1229\ : bit;
@@ -550,8 +550,8 @@ SIGNAL \PWM_2:Net_113\ : bit;
 SIGNAL \PWM_2:Net_63\ : bit;
 SIGNAL \PWM_2:Net_57\ : bit;
 SIGNAL \PWM_2:Net_54\ : bit;
-SIGNAL Net_141 : bit;
-SIGNAL Net_147 : bit;
+SIGNAL Net_349 : bit;
+SIGNAL Net_355 : bit;
 SIGNAL \PWM_2:Net_114\ : bit;
 SIGNAL tmpOE__M2_IN2_net_0 : bit;
 SIGNAL tmpFB_0__M2_IN2_net_0 : bit;
@@ -1779,7 +1779,7 @@ M2_D1:cy_psoc3_pins_v1_10
 		clock=>\QuadDec_M1:bQuadDec:sync_clock\,
 		status=>(zero, zero, zero, \QuadDec_M1:bQuadDec:error\,
 			\QuadDec_M1:Net_1260\, \QuadDec_M1:Net_611\, \QuadDec_M1:Net_530\),
-		interrupt=>Net_3);
+		interrupt=>Net_312);
 \QuadDec_M2:Cnt16:CounterUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
 	PORT MAP(clock_in=>Net_1850,

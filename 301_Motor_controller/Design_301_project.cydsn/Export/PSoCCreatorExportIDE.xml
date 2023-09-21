@@ -37,6 +37,7 @@
       <Folder BuildType="STRICT" Path="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn">
         <Files Root="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
+          <File BuildType="BUILD" Toolchain="">store.c</File>
           <File BuildType="BUILD" Toolchain="">vars.h</File>
           <File BuildType="BUILD" Toolchain="">defines.h</File>
         </Files>
