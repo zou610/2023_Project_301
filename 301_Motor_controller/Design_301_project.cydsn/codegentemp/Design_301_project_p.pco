@@ -98,7 +98,7 @@ set_location "\UART:BUART:rx_state_2\" macrocell 3 3 1 0
 set_location "\UART:BUART:rx_load_fifo\" macrocell 3 3 1 1
 set_location "\USBUART:bus_reset\" interrupt -1 -1 23
 set_io "Rx_1(0)" iocell 0 3
-set_io "Vo4(0)" iocell 1 5
+set_io "Vo4(0)" iocell 1 7
 set_location "\USBUART:USB\" usbcell -1 -1 0
 set_location "\USBUART:sof_int\" interrupt -1 -1 21
 set_io "Vo2(0)" iocell 0 6
@@ -125,7 +125,7 @@ set_io "Vo1(0)" iocell 0 5
 set_io "Vo3(0)" iocell 0 7
 set_location "\USBUART:Dp\" logicalport -1 -1 8
 set_io "Tx_1(0)" iocell 0 4
-set_io "Vo6(0)" iocell 1 7
+set_io "Vo6(0)" iocell 1 5
 set_location "\USBUART:ep_1\" interrupt -1 -1 0
 set_location "\USBUART:ep_2\" interrupt -1 -1 1
 set_location "\USBUART:ep_0\" interrupt -1 -1 24

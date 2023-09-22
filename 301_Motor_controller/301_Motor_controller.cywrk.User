@@ -38,12 +38,6 @@
 <v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>301_Motor_controller</v>
-<v>301_Motor_controller\Design_301_project</v>
-<v>301_Motor_controller\Design_301_project\TopDesign</v>
-<v>301_Motor_controller\Design_301_project\Header Files</v>
-<v>301_Motor_controller\Design_301_project\Header Files\defines.h</v>
-<v>301_Motor_controller\Design_301_project\Header Files\vars.h</v>
 <v>301_Motor_controller\Design_301_project\Source Files</v>
 <v>301_Motor_controller\Design_301_project\Source Files\Design_301_project.cydwr</v>
 <v>301_Motor_controller\Design_301_project\Source Files\Design_301_project.cydwr\Pins</v>
@@ -63,6 +57,10 @@
 <v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\Clock_QENC</v>
 <v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\Clock2</v>
 <v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\CONTROL</v>
+<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\cy_boot</v>
+<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\DB0</v>
+<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\DB1</v>
+<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\DB2</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -200,8 +198,6 @@
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -260,7 +256,6 @@
 <v>301_Motor_controller\Design_301_project\Timer_v2_80.pdf</v>
 <v>301_Motor_controller\Design_301_project\UART_v2_50.pdf</v>
 <v>301_Motor_controller\Design_301_project\USBFS_v3_20.pdf</v>
-<v>301_Motor_controller\Design_301_project\ZeroTerminal.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -270,22 +265,28 @@
 <CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
 <indicators>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="101" DocumentName=".\Design_301_project.cydsn\main.c" />
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="106" DocumentName=".\Design_301_project.cydsn\main.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
 <CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="32" DocumentName=".\Design_301_project.cydsn\main.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="240" DocumentName=".\Design_301_project.cydsn\main.c" />
-</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
-<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
 <CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="241" DocumentName=".\Design_301_project.cydsn\main.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="217" DocumentName=".\Design_301_project.cydsn\main.c" />
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="266" DocumentName=".\Design_301_project.cydsn\main.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="222" DocumentName=".\Design_301_project.cydsn\main.c" />
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="223" DocumentName=".\Design_301_project.cydsn\main.c" />
+</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
+<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="244" DocumentName=".\Design_301_project.cydsn\main.c" />
+</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
+<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="33" DocumentName=".\Design_301_project.cydsn\main.c" />
+</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
+<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="241" DocumentName=".\Design_301_project.cydsn\main.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 </indicators>
 </CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>

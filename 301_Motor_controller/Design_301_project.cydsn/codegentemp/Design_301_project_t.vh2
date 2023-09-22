@@ -1,5 +1,5 @@
 -- Project:   D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\Design_301_project.cyprj
--- Generated: 09/19/2023 22:28:22
+-- Generated: 09/22/2023 13:53:54
 -- PSoC Creator  4.4
 
 ENTITY Design_301_project IS
@@ -435,7 +435,7 @@ ARCHITECTURE __DEFAULT__ OF Design_301_project IS
     ATTRIBUTE lib_model OF Rx_2(0) : LABEL IS "iocell21";
     ATTRIBUTE Location OF Rx_2(0) : LABEL IS "P0[2]";
     ATTRIBUTE lib_model OF Vo6(0) : LABEL IS "iocell22";
-    ATTRIBUTE Location OF Vo6(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF Vo6(0) : LABEL IS "P1[5]";
     ATTRIBUTE lib_model OF Vo1(0) : LABEL IS "iocell23";
     ATTRIBUTE Location OF Vo1(0) : LABEL IS "P0[5]";
     ATTRIBUTE lib_model OF Vo2(0) : LABEL IS "iocell24";
@@ -445,7 +445,7 @@ ARCHITECTURE __DEFAULT__ OF Design_301_project IS
     ATTRIBUTE lib_model OF Vo3(0) : LABEL IS "iocell26";
     ATTRIBUTE Location OF Vo3(0) : LABEL IS "P0[7]";
     ATTRIBUTE lib_model OF Vo4(0) : LABEL IS "iocell27";
-    ATTRIBUTE Location OF Vo4(0) : LABEL IS "P1[5]";
+    ATTRIBUTE Location OF Vo4(0) : LABEL IS "P1[7]";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE Location OF \QuadDec_M1:Cnt16:CounterUDB:reload\ : LABEL IS "U(2,4)";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";

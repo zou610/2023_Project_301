@@ -13,7 +13,7 @@
         if(flag_encoder) {            
             encoder_counter1 = QuadDec_M1_GetCounter();  // 228; // timer - 1s
             encoder_counter2 = QuadDec_M2_GetCounter(); // 228; // timer - ls
-            //sprintf(line, "M1_speed: %.8lf, M2_speed: %.8lf ", encoder_counter1, encoder_counter2); 
+            //sprintf(line, "M1_speed: %.2lf, M2_speed: %.2lf ", encoder_counter1, encoder_counter2); 
             
             //usbPutString(message_encoder);
             itoa(encoder_counter1, line, 10);

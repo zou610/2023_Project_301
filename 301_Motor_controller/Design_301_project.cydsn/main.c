@@ -37,6 +37,7 @@ void M1_forward();
 void M1_backward();
 void M2_forward();
 void M2_backward();
+void Motor_Activate();
 //* ========================================
 enum Motion_State {
     FORWARD,
@@ -60,7 +61,7 @@ volatile int8 pre_vo1, pre_vo2, pre_vo3, pre_vo4, pre_vo5, pre_vo6;
 //* ========================================
 CY_ISR(isr_timer_EncoderCalculation){
     flag_encoder = 1;
-    LED_Write(0);
+    //LED_Write(0);
 }
 
 int main()
@@ -84,12 +85,16 @@ int main()
     PWM_2_WritePeriod(800);
     PWM_2_WriteCompare(400);
     PWM_2_SaveConfig();
+
     */
-    M1_set_speed(0);
-    M2_set_speed(0);
+    //M1_set_speed(35);
+    //M2_set_speed(35);
     
-    M1_forward();
-    M2_forward();
+    //M1_forward();
+    //M2_forward();
+    
+    //movement(FORWARD);
+    
     
     // timer
     Timer_TS_Start();
@@ -101,10 +106,12 @@ int main()
     RF_BT_SELECT_Write(0);
     
     for(;;)
-    {   
+    {        
         movement(decide_motion(detect_position()));
-        if (Vo6_Read()) {
+        if (Vo3_Read()) {
             LED_Write(1);
+        }else if(!Vo3_Read()){
+           LED_Write(0); 
         }
     }   
 }
@@ -187,18 +194,28 @@ void handle_usb()
 enum Position_State detect_position() {
     enum Position_State current_state = OTHER;
 
-    if (Vo5_Read()) {
-        current_state = LEFTCROSS;
-    } 
+
     // STRAIGHT
-    else if (!Vo1_Read() & !Vo2_Read() & !Vo3_Read() & Vo5_Read()) {
+    /*if (!Vo1_Read() & !Vo2_Read() & !Vo3_Read() ) {
+        current_state = STRAIGHT;
+        //return STRAIGHT; // 1 2 3 - dark, turning done
+    }    
+    else*/ if (!Vo1_Read() & !Vo2_Read() & !Vo3_Read() & Vo5_Read() & Vo6_Read()) {
         current_state = STRAIGHT;
         //return STRAIGHT;// 1 2 3 4 - dark, normal straight
     }
-    else if (!Vo1_Read() & !Vo2_Read() & !Vo3_Read() ) {
-        current_state = STRAIGHT;
-        //return STRAIGHT; // 1 2 3 - dark, turning done
+    else if (!Vo1_Read() & !Vo2_Read() & !Vo3_Read() & Vo4_Read() & !Vo5_Read() & Vo6_Read()) {
+        current_state = LEFTCROSS;
+    } 
+    else if (!Vo1_Read() & !Vo2_Read() & !Vo3_Read() & Vo4_Read() & Vo5_Read() & !Vo6_Read()) {
+        current_state = RIGHTCROSS;
     }
+    
+     if (!Vo1_Read() & !Vo2_Read() & !Vo3_Read() & !Vo4_Read() & Vo5_Read() & Vo6_Read()) {
+        current_state = STRAIGHT;
+        //return STRAIGHT;// 1 2 3 4 - dark, normal straight
+    }
+    
 
     if ((last_position_state == current_state) && (last_position_state != STRAIGHT && (current_state != OTHER))) {
         movement(STOP);
@@ -206,11 +223,16 @@ enum Position_State detect_position() {
         movement(decide_motion(current_state));
         CyDelay(200);
     }
+    if((last_position_state == STRAIGHT) && (current_state != STRAIGHT)){
+        movement(FORWARD);
+        CyDelay(200);
+        movement(decide_motion(current_state));
+    }
     if (current_state == OTHER) {
         movement(STOP);
-        CyDelay(500);
-        movement(FORWARD);
-        CyDelay(1000);
+        //CyDelay(500);
+        //movement(FORWARD);
+        //CyDelay(1000);
     }
     last_position_state = current_state;
     return last_position_state;
@@ -220,40 +242,50 @@ enum Motion_State decide_motion(enum Position_State p_state) {
     if (p_state == RIGHTCROSS) {return RIGHT;}
     if (p_state == LEFTCROSS) {return LEFT;}
     if (p_state == STRAIGHT) {return FORWARD;}
-    if (p_state == OTHER) {return FORWARD;}
+    if (p_state == OTHER) {return STOP;}
     return STOP;
 }
 //* ========================================
 void movement(enum Motion_State motion) {
-    if (motion == FORWARD) {
-        M1_set_speed(65);
-        M2_set_speed(60);
+    if (motion == FORWARD) {     
+        Motor_Activate();
+        M1_set_speed(35);
+        M2_set_speed(35);
+       
         // Direction  
         M1_forward();
         M2_forward();
     }
     
     if (motion == BACK) {
-        M1_set_speed(50);
-        M2_set_speed(55);
+        Motor_Activate();
+        M1_set_speed(35);
+        M2_set_speed(35);
         // Direction
         M1_backward();
         M2_backward();
     }
     
-    if (motion == RIGHT) {
-        M1_set_speed(50);
-        M2_set_speed(50);        
-        // Direction
-        M1_forward();
-        M2_backward();
-        
-        
+    if (motion == RIGHT) {        
+            CyDelay(100);
+            movement(STOP);
+            Motor_Activate();
+            M1_set_speed(35);
+            M2_set_speed(35);        
+            // Direction
+            M1_forward();
+            M2_backward();
+
+
+            
     }
     
-    if (motion == LEFT) {
-        M1_set_speed(70);
-        M2_set_speed(70);
+    if (motion == LEFT) {        
+        CyDelay(100);
+        movement(STOP);
+        Motor_Activate();
+        M1_set_speed(35);
+        M2_set_speed(35);
         // Direction      
         M1_backward();
         M2_forward();    
@@ -273,7 +305,7 @@ void M1_set_speed(double num) {
     if (num < 0) {
         num = 0;
     }
-    PWM_1_WriteCompare((double)(PWM_1_ReadPeriod()* num) / 100);
+    PWM_1_WriteCompare((double)(800.0 * num) / 100);
     PWM_1_SaveConfig();
     //usbPutString("M1 speed changed\n\r");    
 };
@@ -285,7 +317,7 @@ void M2_set_speed(double num) {
     if (num < 0) {
         num = 0;
     }
-    PWM_2_WriteCompare((double)(PWM_2_ReadPeriod()* num) / 100);
+    PWM_2_WriteCompare((double)(800.0 * num) / 100);
     PWM_2_SaveConfig();
     //usbPutString("M2 speed changed\n\r");   
 };
@@ -313,4 +345,12 @@ void M2_backward() {
     M2_IN1_Write(1);
     M2_IN2_Write(0);
 };
+
+void Motor_Activate(){
+    if((PWM_1_ReadCompare() == 0) && (PWM_2_ReadCompare() == 0)){
+        M1_set_speed(80);
+        M2_set_speed(80);
+        CyDelay(100);
+    }
+}
 /* [] END OF FILE */

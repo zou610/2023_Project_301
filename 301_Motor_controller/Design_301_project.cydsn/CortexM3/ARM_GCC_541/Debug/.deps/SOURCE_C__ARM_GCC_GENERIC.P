@@ -190,7 +190,3 @@ D:/Year3/COMPSYS301/2023_Project_301/301_Motor_controller/Design_301_project.cyd
 
 D:/Year3/COMPSYS301/2023_Project_301/301_Motor_controller/Design_301_project.cydsn/vars.h : 
 
-D:/Year3/COMPSYS301/2023_Project_301/301_Motor_controller/Design_301_project.cydsn/CortexM3/ARM_GCC_541/Debug/store.o : D:/Year3/COMPSYS301/2023_Project_301/301_Motor_controller/Design_301_project.cydsn/store.c 
-
-D:/Year3/COMPSYS301/2023_Project_301/301_Motor_controller/Design_301_project.cydsn/store.c : 
-

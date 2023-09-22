@@ -1,5 +1,5 @@
 -- Project:   Design_301_project
--- Generated: 09/19/2023 22:28:17
+-- Generated: 09/22/2023 13:53:49
 -- PSoC Creator  4.4
 
 ENTITY Design_301_project IS
@@ -343,7 +343,7 @@ ARCHITECTURE __DEFAULT__ OF Design_301_project IS
     ATTRIBUTE Location OF DB2(0) : LABEL IS "P3[6]";
     ATTRIBUTE lib_model OF Rx_2(0) : LABEL IS "iocell_ireg";
     ATTRIBUTE lib_model OF Vo6(0) : LABEL IS "iocell17";
-    ATTRIBUTE Location OF Vo6(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF Vo6(0) : LABEL IS "P1[5]";
     ATTRIBUTE lib_model OF Vo1(0) : LABEL IS "iocell18";
     ATTRIBUTE Location OF Vo1(0) : LABEL IS "P0[5]";
     ATTRIBUTE lib_model OF Vo2(0) : LABEL IS "iocell19";
@@ -353,7 +353,7 @@ ARCHITECTURE __DEFAULT__ OF Design_301_project IS
     ATTRIBUTE lib_model OF Vo3(0) : LABEL IS "iocell21";
     ATTRIBUTE Location OF Vo3(0) : LABEL IS "P0[7]";
     ATTRIBUTE lib_model OF Vo4(0) : LABEL IS "iocell22";
-    ATTRIBUTE Location OF Vo4(0) : LABEL IS "P1[5]";
+    ATTRIBUTE Location OF Vo4(0) : LABEL IS "P1[7]";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_2\ : LABEL IS "macrocell4";

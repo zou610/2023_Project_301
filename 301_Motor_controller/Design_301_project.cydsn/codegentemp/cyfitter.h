@@ -258,11 +258,11 @@
 #define Vo3__SLW CYREG_PRT0_SLW
 
 /* Vo4 */
-#define Vo4__0__INTTYPE CYREG_PICU1_INTTYPE5
-#define Vo4__0__MASK 0x20u
-#define Vo4__0__PC CYREG_PRT1_PC5
+#define Vo4__0__INTTYPE CYREG_PICU1_INTTYPE7
+#define Vo4__0__MASK 0x80u
+#define Vo4__0__PC CYREG_PRT1_PC7
 #define Vo4__0__PORT 1u
-#define Vo4__0__SHIFT 5u
+#define Vo4__0__SHIFT 7u
 #define Vo4__AG CYREG_PRT1_AG
 #define Vo4__AMUX CYREG_PRT1_AMUX
 #define Vo4__BIE CYREG_PRT1_BIE
@@ -277,7 +277,7 @@
 #define Vo4__INTTYPE_BASE CYDEV_PICU_INTTYPE_PICU1_BASE
 #define Vo4__LCD_COM_SEG CYREG_PRT1_LCD_COM_SEG
 #define Vo4__LCD_EN CYREG_PRT1_LCD_EN
-#define Vo4__MASK 0x20u
+#define Vo4__MASK 0x80u
 #define Vo4__PORT 1u
 #define Vo4__PRT CYREG_PRT1_PRT
 #define Vo4__PRTDSI__CAPS_SEL CYREG_PRT1_CAPS_SEL
@@ -288,7 +288,7 @@
 #define Vo4__PRTDSI__OUT_SEL1 CYREG_PRT1_OUT_SEL1
 #define Vo4__PRTDSI__SYNC_OUT CYREG_PRT1_SYNC_OUT
 #define Vo4__PS CYREG_PRT1_PS
-#define Vo4__SHIFT 5u
+#define Vo4__SHIFT 7u
 #define Vo4__SLW CYREG_PRT1_SLW
 
 /* Vo5 */
@@ -326,11 +326,11 @@
 #define Vo5__SLW CYREG_PRT1_SLW
 
 /* Vo6 */
-#define Vo6__0__INTTYPE CYREG_PICU1_INTTYPE7
-#define Vo6__0__MASK 0x80u
-#define Vo6__0__PC CYREG_PRT1_PC7
+#define Vo6__0__INTTYPE CYREG_PICU1_INTTYPE5
+#define Vo6__0__MASK 0x20u
+#define Vo6__0__PC CYREG_PRT1_PC5
 #define Vo6__0__PORT 1u
-#define Vo6__0__SHIFT 7u
+#define Vo6__0__SHIFT 5u
 #define Vo6__AG CYREG_PRT1_AG
 #define Vo6__AMUX CYREG_PRT1_AMUX
 #define Vo6__BIE CYREG_PRT1_BIE
@@ -345,7 +345,7 @@
 #define Vo6__INTTYPE_BASE CYDEV_PICU_INTTYPE_PICU1_BASE
 #define Vo6__LCD_COM_SEG CYREG_PRT1_LCD_COM_SEG
 #define Vo6__LCD_EN CYREG_PRT1_LCD_EN
-#define Vo6__MASK 0x80u
+#define Vo6__MASK 0x20u
 #define Vo6__PORT 1u
 #define Vo6__PRT CYREG_PRT1_PRT
 #define Vo6__PRTDSI__CAPS_SEL CYREG_PRT1_CAPS_SEL
@@ -356,7 +356,7 @@
 #define Vo6__PRTDSI__OUT_SEL1 CYREG_PRT1_OUT_SEL1
 #define Vo6__PRTDSI__SYNC_OUT CYREG_PRT1_SYNC_OUT
 #define Vo6__PS CYREG_PRT1_PS
-#define Vo6__SHIFT 7u
+#define Vo6__SHIFT 5u
 #define Vo6__SLW CYREG_PRT1_SLW
 
 /* Rx_1 */
