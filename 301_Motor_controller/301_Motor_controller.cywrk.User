@@ -51,20 +51,6 @@
 <v>301_Motor_controller\Design_301_project\Source Files\Design_301_project.cydwr\Clocks</v>
 <v>301_Motor_controller\Design_301_project\Source Files\Design_301_project.cydwr\Interrupts</v>
 <v>301_Motor_controller\Design_301_project\Source Files\Design_301_project.cydwr\DMA</v>
-<v>301_Motor_controller\Design_301_project\Source Files\Design_301_project.cydwr\System</v>
-<v>301_Motor_controller\Design_301_project\Source Files\Design_301_project.cydwr\Directives</v>
-<v>301_Motor_controller\Design_301_project\Source Files\Design_301_project.cydwr\Flash Security</v>
-<v>301_Motor_controller\Design_301_project\Source Files\Design_301_project.cydwr\EEPROM</v>
-<v>301_Motor_controller\Design_301_project\Source Files\main.c</v>
-<v>301_Motor_controller\Design_301_project\Source Files\store.c</v>
-<v>301_Motor_controller\Design_301_project\Generated_Source</v>
-<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5</v>
-<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\Clock_PWM</v>
-<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\Clock_QENC</v>
-<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\Clock2</v>
-<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\Clock2_1</v>
-<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\CONTROL</v>
-<v>301_Motor_controller\Design_301_project\Generated_Source\PSoC5\cy_boot</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -196,20 +182,6 @@
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL.lst</v>
 <v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL_PM.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
-<v>301_Motor_controller\Design_301_project\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_activate.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -262,20 +234,6 @@
 <v>301_Motor_controller\Design_301_project\cy_isr_v1_71\cy_isr_v1_71.pdf</v>
 <v>301_Motor_controller\Design_301_project\cy_pins_v2_20</v>
 <v>301_Motor_controller\Design_301_project\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>301_Motor_controller\Design_301_project\CyControlReg_v1_80</v>
-<v>301_Motor_controller\Design_301_project\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
-<v>301_Motor_controller\Design_301_project\mux_v1_10.pdf</v>
-<v>301_Motor_controller\Design_301_project\not_v1_0</v>
-<v>301_Motor_controller\Design_301_project\not_v1_0\not_v1_0.pdf</v>
-<v>301_Motor_controller\Design_301_project\PWM_v3_30</v>
-<v>301_Motor_controller\Design_301_project\PWM_v3_30\PWM_v3_30.pdf</v>
-<v>301_Motor_controller\Design_301_project\QuadDec_v3_0</v>
-<v>301_Motor_controller\Design_301_project\QuadDec_v3_0\QuadDec_v3_0.pdf</v>
-<v>301_Motor_controller\Design_301_project\Timer_v2_80</v>
-<v>301_Motor_controller\Design_301_project\Timer_v2_80\Timer_v2_80.pdf</v>
-<v>301_Motor_controller\Design_301_project\UART_v2_50.pdf</v>
-<v>301_Motor_controller\Design_301_project\USBFS_v3_20.pdf</v>
-<v>301_Motor_controller\Design_301_project\ZeroTerminal</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -283,26 +241,7 @@
 </dataGuid>
 <dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
 <CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
-<indicators>
-<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="33" DocumentName=".\Design_301_project.cydsn\main.c" />
-</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
-<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="229" DocumentName=".\Design_301_project.cydsn\main.c" />
-</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
-<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="36" DocumentName=".\Design_301_project.cydsn\main.c" />
-</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
-<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="45" DocumentName=".\Design_301_project.cydsn\main.c" />
-</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
-<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="271" DocumentName=".\Design_301_project.cydsn\main.c" />
-</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
-<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="315" DocumentName=".\Design_301_project.cydsn\main.c" />
-</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
-</indicators>
+<indicators />
 </CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
 </dataGuid>
 </userData>
@@ -311,7 +250,6 @@
 <OpenDocs>
 <name v=".\Design_301_project.cydsn\main.c" />
 <name v=".\Design_301_project.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\Design_301_project.cydsn\Design_301_project.cydwr" />
 <name v=".\Design_301_project.cydsn\store.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
@@ -320,7 +258,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="858, 553" SelectedTabbedMdiWindow="39c6d429-1390-437f-b56f-64fc9643e47f"><DocumentWindow Key="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\main.c" Guid="39c6d429-1390-437f-b56f-64fc9643e47f" /><DocumentWindow Key="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch" Guid="5251b2f8-94cf-4ec0-a2ff-1b5efe35bced" /><DocumentWindow Key="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\Design_301_project.cydwr" Guid="899dc382-5e59-4349-b88d-46e09b419ae6" /><DocumentWindow Key="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\store.c" Guid="caf0826f-68dc-48ab-a511-33757cd1d680" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1171, 582" SelectedTabbedMdiWindow="39c6d429-1390-437f-b56f-64fc9643e47f"><DocumentWindow Key="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\main.c" Guid="39c6d429-1390-437f-b56f-64fc9643e47f" /><DocumentWindow Key="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch" Guid="5251b2f8-94cf-4ec0-a2ff-1b5efe35bced" /><DocumentWindow Key="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\store.c" Guid="caf0826f-68dc-48ab-a511-33757cd1d680" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="b49c01b8-a6f6-4f0b-b4fd-b649f16436ab" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
