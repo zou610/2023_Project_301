@@ -2,7 +2,7 @@
 --	Conversion of Design_301_project.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Sep 24 14:45:05 2023
+--	Sun Sep 24 20:25:27 2023
 --
 
 USE cypress.cypress.all;
@@ -12,7 +12,7 @@ ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
 END top_RTL;
 --------------------------------------------------------
 ARCHITECTURE R_T_L OF top_RTL IS
-SIGNAL CLK24M : bit;
+SIGNAL Net_732 : bit;
 SIGNAL tmpOE__M2_D1_net_0 : bit;
 SIGNAL Net_3236 : bit;
 SIGNAL tmpFB_0__M2_D1_net_0 : bit;
@@ -536,14 +536,14 @@ TERMINAL tmpSIOVREF__M1_IN1_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__M1_IN1_net_0 : bit;
 SIGNAL Net_241 : bit;
 SIGNAL Net_244 : bit;
-SIGNAL \Timer_TS:Net_260\ : bit;
-SIGNAL \Timer_TS:Net_266\ : bit;
-SIGNAL \Timer_TS:Net_51\ : bit;
-SIGNAL \Timer_TS:Net_261\ : bit;
-SIGNAL \Timer_TS:Net_57\ : bit;
+SIGNAL \Timer_1:Net_260\ : bit;
+SIGNAL \Timer_1:Net_266\ : bit;
+SIGNAL \Timer_1:Net_51\ : bit;
+SIGNAL \Timer_1:Net_261\ : bit;
+SIGNAL \Timer_1:Net_57\ : bit;
 SIGNAL Net_246 : bit;
 SIGNAL Net_1619 : bit;
-SIGNAL \Timer_TS:Net_102\ : bit;
+SIGNAL \Timer_1:Net_102\ : bit;
 SIGNAL \USBUART:Net_1010\ : bit;
 SIGNAL \USBUART:tmpOE__Dm_net_0\ : bit;
 SIGNAL \USBUART:tmpFB_0__Dm_net_0\ : bit;
@@ -1031,21 +1031,19 @@ SIGNAL Net_280 : bit;
 SIGNAL tmpIO_0__Vo4_net_0 : bit;
 TERMINAL tmpSIOVREF__Vo4_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Vo4_net_0 : bit;
-SIGNAL Net_357 : bit;
-SIGNAL Net_360 : bit;
-SIGNAL \Timer_Activate:Net_260\ : bit;
-SIGNAL \Timer_Activate:Net_266\ : bit;
-SIGNAL \Timer_Activate:Net_51\ : bit;
-SIGNAL \Timer_Activate:Net_261\ : bit;
-SIGNAL \Timer_Activate:Net_57\ : bit;
-SIGNAL Net_362 : bit;
-SIGNAL Net_363 : bit;
-SIGNAL \Timer_Activate:Net_102\ : bit;
 SIGNAL tmpOE__M1_D1_net_0 : bit;
 SIGNAL tmpFB_0__M1_D1_net_0 : bit;
 SIGNAL tmpIO_0__M1_D1_net_0 : bit;
 TERMINAL tmpSIOVREF__M1_D1_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__M1_D1_net_0 : bit;
+SIGNAL \Timer_2:Net_260\ : bit;
+SIGNAL \Timer_2:Net_266\ : bit;
+SIGNAL \Timer_2:Net_51\ : bit;
+SIGNAL \Timer_2:Net_261\ : bit;
+SIGNAL \Timer_2:Net_57\ : bit;
+SIGNAL Net_410 : bit;
+SIGNAL Net_422 : bit;
+SIGNAL \Timer_2:Net_102\ : bit;
 SIGNAL \QuadDec_M1:Net_1251\\D\ : bit;
 SIGNAL \QuadDec_M1:Cnt16:CounterUDB:prevCapture\\D\ : bit;
 SIGNAL \QuadDec_M1:Cnt16:CounterUDB:overflow_reg_i\\D\ : bit;
@@ -1361,7 +1359,7 @@ Clock_PWM:cy_clock_v1_0
 		period=>"1000000000",
 		is_direct=>'0',
 		is_digital=>'1')
-	PORT MAP(clock_out=>CLK24M,
+	PORT MAP(clock_out=>Net_732,
 		dig_domain_out=>open);
 M2_D1:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"b1fa2c7e-98cc-45fd-8e73-21adf3cc4a1e",
@@ -2171,7 +2169,7 @@ M2_QB:cy_psoc3_pins_v1_10
 			\CONTROL:control_3\, \CONTROL:control_2\, Net_3236, Net_1832));
 \PWM_1:PWMHW\:cy_psoc3_timer_v1_0
 	GENERIC MAP(cy_registers=>"")
-	PORT MAP(clock=>CLK24M,
+	PORT MAP(clock=>Net_732,
 		kill=>zero,
 		enable=>tmpOE__M2_D1_net_0,
 		capture=>zero,
@@ -2181,7 +2179,7 @@ M2_QB:cy_psoc3_pins_v1_10
 		interrupt=>\PWM_1:Net_54\);
 \PWM_2:PWMHW\:cy_psoc3_timer_v1_0
 	GENERIC MAP(cy_registers=>"")
-	PORT MAP(clock=>CLK24M,
+	PORT MAP(clock=>Net_732,
 		kill=>zero,
 		enable=>tmpOE__M2_D1_net_0,
 		capture=>zero,
@@ -2409,7 +2407,7 @@ M1_IN1:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__M2_D1_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__M1_IN1_net_0);
-\Timer_TS:TimerHW\:cy_psoc3_timer_v1_0
+\Timer_1:TimerHW\:cy_psoc3_timer_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(clock=>Net_244,
 		kill=>zero,
@@ -2417,9 +2415,9 @@ M1_IN1:cy_psoc3_pins_v1_10
 		capture=>zero,
 		timer_reset=>zero,
 		tc=>Net_1619,
-		compare=>\Timer_TS:Net_261\,
-		interrupt=>\Timer_TS:Net_57\);
-isr_TS:cy_isr_v1_0
+		compare=>\Timer_1:Net_261\,
+		interrupt=>\Timer_1:Net_57\);
+isr_US:cy_isr_v1_0
 	GENERIC MAP(int_type=>"00",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_1619);
@@ -3922,30 +3920,6 @@ Vo4:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__M2_D1_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Vo4_net_0);
-\Timer_Activate:TimerHW\:cy_psoc3_timer_v1_0
-	GENERIC MAP(cy_registers=>"")
-	PORT MAP(clock=>Net_360,
-		kill=>zero,
-		enable=>tmpOE__M2_D1_net_0,
-		capture=>zero,
-		timer_reset=>zero,
-		tc=>Net_363,
-		compare=>\Timer_Activate:Net_261\,
-		interrupt=>\Timer_Activate:Net_57\);
-isr_activate:cy_isr_v1_0
-	GENERIC MAP(int_type=>"00",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_363);
-Clock2_1:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"03e3dca1-e5f5-45ac-b44d-8585e7ac856a",
-		source_clock_id=>"315365C3-2E3E-4f04-84A2-BB564A173261",
-		divisor=>0,
-		period=>"10000000000000",
-		is_direct=>'0',
-		is_digital=>'1')
-	PORT MAP(clock_out=>Net_360,
-		dig_domain_out=>open);
 M1_D1:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"e851a3b9-efb8-48be-bbb8-b303b216c393",
 		drive_mode=>"110",
@@ -4016,6 +3990,20 @@ M1_D1:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__M2_D1_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__M1_D1_net_0);
+\Timer_2:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_244,
+		kill=>zero,
+		enable=>tmpOE__M2_D1_net_0,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>Net_422,
+		compare=>\Timer_2:Net_261\,
+		interrupt=>\Timer_2:Net_57\);
+isr_T2:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_422);
 \QuadDec_M1:Net_1251\:cy_dff
 	PORT MAP(d=>\QuadDec_M1:Net_1251\\D\,
 		clk=>\QuadDec_M1:bQuadDec:sync_clock\,

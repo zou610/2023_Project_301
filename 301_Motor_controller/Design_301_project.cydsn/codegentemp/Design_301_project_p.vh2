@@ -1,5 +1,5 @@
 -- Project:   Design_301_project
--- Generated: 09/24/2023 14:45:06
+-- Generated: 09/24/2023 20:25:28
 -- PSoC Creator  4.4
 
 ENTITY Design_301_project IS
@@ -38,9 +38,6 @@ ENTITY Design_301_project IS
 END Design_301_project;
 
 ARCHITECTURE __DEFAULT__ OF Design_301_project IS
-    SIGNAL CLK24M : bit;
-    ATTRIBUTE global_signal OF CLK24M : SIGNAL IS true;
-    SIGNAL CLK24M_local : bit;
     SIGNAL ClockBlock_100k : bit;
     SIGNAL ClockBlock_1k : bit;
     SIGNAL ClockBlock_32k : bit;
@@ -86,16 +83,16 @@ ARCHITECTURE __DEFAULT__ OF Design_301_project IS
     SIGNAL Net_3236 : bit;
     SIGNAL Net_3406 : bit;
     SIGNAL Net_3437 : bit;
-    SIGNAL Net_360 : bit;
-    ATTRIBUTE global_signal OF Net_360 : SIGNAL IS true;
-    SIGNAL Net_360_local : bit;
-    SIGNAL Net_363 : bit;
     SIGNAL Net_401 : bit;
     SIGNAL Net_402 : bit;
+    SIGNAL Net_422 : bit;
     SIGNAL Net_724 : bit;
     SIGNAL Net_725 : bit;
     SIGNAL Net_729 : bit;
     SIGNAL Net_730 : bit;
+    SIGNAL Net_732 : bit;
+    ATTRIBUTE global_signal OF Net_732 : SIGNAL IS true;
+    SIGNAL Net_732_local : bit;
     SIGNAL Rx_1(0)__PA : bit;
     SIGNAL Rx_2(0)__PA : bit;
     SIGNAL Tx_1(0)__PA : bit;
@@ -193,10 +190,10 @@ ARCHITECTURE __DEFAULT__ OF Design_301_project IS
     SIGNAL \RF_BT_SELECT:control_5\ : bit;
     SIGNAL \RF_BT_SELECT:control_6\ : bit;
     SIGNAL \RF_BT_SELECT:control_7\ : bit;
-    SIGNAL \Timer_Activate:Net_261\ : bit;
-    SIGNAL \Timer_Activate:Net_57\ : bit;
-    SIGNAL \Timer_TS:Net_261\ : bit;
-    SIGNAL \Timer_TS:Net_57\ : bit;
+    SIGNAL \Timer_1:Net_261\ : bit;
+    SIGNAL \Timer_1:Net_57\ : bit;
+    SIGNAL \Timer_2:Net_261\ : bit;
+    SIGNAL \Timer_2:Net_57\ : bit;
     SIGNAL \UART:BUART:counter_load_not\ : bit;
     SIGNAL \UART:BUART:pollcount_0\ : bit;
     SIGNAL \UART:BUART:pollcount_1\ : bit;
@@ -274,7 +271,6 @@ ARCHITECTURE __DEFAULT__ OF Design_301_project IS
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     SIGNAL \ClockBlock.dclk_glb_ff_1__sig\ : bit;
     SIGNAL \ClockBlock.dclk_glb_ff_3__sig\ : bit;
-    SIGNAL \ClockBlock.dclk_glb_ff_4__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.cl0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.z0__sig\ : bit;
@@ -829,17 +825,14 @@ BEGIN
             dsi_glb_div => open,
             dclk_glb_0 => Net_1850,
             dclk_0 => Net_1850_local,
-            dclk_glb_1 => CLK24M,
-            dclk_1 => CLK24M_local,
+            dclk_glb_1 => Net_732,
+            dclk_1 => Net_732_local,
             dclk_glb_2 => \UART:Net_9\,
             dclk_2 => \UART:Net_9_local\,
-            dclk_glb_3 => Net_360,
-            dclk_3 => Net_360_local,
-            dclk_glb_4 => Net_244,
-            dclk_4 => Net_244_local,
+            dclk_glb_3 => Net_244,
+            dclk_3 => Net_244_local,
             dclk_glb_ff_1 => \ClockBlock.dclk_glb_ff_1__sig\,
-            dclk_glb_ff_3 => \ClockBlock.dclk_glb_ff_3__sig\,
-            dclk_glb_ff_4 => \ClockBlock.dclk_glb_ff_4__sig\);
+            dclk_glb_ff_3 => \ClockBlock.dclk_glb_ff_3__sig\);
 
     M2_D1:logicalport
         GENERIC MAP(
@@ -3781,20 +3774,20 @@ BEGIN
             cmp => Net_2460,
             irq => \PWM_2:Net_54\);
 
-    \Timer_TS:TimerHW\:timercell
+    \Timer_1:TimerHW\:timercell
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_4__sig\,
+            clock => \ClockBlock.dclk_glb_ff_3__sig\,
             kill => open,
             enable => __ONE__,
             capture => open,
             timer_reset => open,
             tc => Net_1619,
-            cmp => \Timer_TS:Net_261\,
-            irq => \Timer_TS:Net_57\);
+            cmp => \Timer_1:Net_261\,
+            irq => \Timer_1:Net_57\);
 
-    isr_TS:interrupt
+    isr_US:interrupt
         GENERIC MAP(
             int_type => "00",
             is_nmi => 0)
@@ -4101,7 +4094,7 @@ BEGIN
             control_0 => Net_3437,
             busclk => ClockBlock_BUS_CLK);
 
-    \Timer_Activate:TimerHW\:timercell
+    \Timer_2:TimerHW\:timercell
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
@@ -4110,16 +4103,16 @@ BEGIN
             enable => __ONE__,
             capture => open,
             timer_reset => open,
-            tc => Net_363,
-            cmp => \Timer_Activate:Net_261\,
-            irq => \Timer_Activate:Net_57\);
+            tc => Net_422,
+            cmp => \Timer_2:Net_261\,
+            irq => \Timer_2:Net_57\);
 
-    isr_activate:interrupt
+    isr_T2:interrupt
         GENERIC MAP(
             int_type => "00",
             is_nmi => 0)
         PORT MAP(
-            interrupt => Net_363,
+            interrupt => Net_422,
             clock => ClockBlock_BUS_CLK);
 
     \QuadDec_M1:Net_1251\:macrocell

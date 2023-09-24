@@ -30,25 +30,38 @@ void handle_usb();
 //* ========================================
 void M1_set_speed();
 void M2_set_speed();
-void straightForward();
-void turnLeft();
-void turnRight();
+void movement();
+void decide_motion();
 //* ========================================
-volatile enum Motion_State current_Motion, next_Motion;
-
-
+volatile enum Motion_State last_Motion, current_Motion, next_Motion;
+volatile int count = 0, Stop_flag = 1;
 //* ========================================
 enum Motion_State {
     FORWARD,
     LEFT, 
     RIGHT, 
     BACKWARD,
-    STOP
+    WAIT_STOP,
+    END
 };
+
+CY_ISR(isr_UpdateState) {
+    current_Motion = next_Motion;
+    count++;
+    if (count == 10000) {
+        Stop_flag = 1;
+        count = 0;
+    }
+}
+CY_ISR(isr_StopInterval) {
+    current_Motion = next_Motion;
+    Timer_2_Sleep();
+    Timer_2_Init();
+    count = 0;
+}
 
 int main()
 {   
-// --------------------------------    
 // ----- INITIALIZATIONS ----------
     CYGlobalIntEnable;
 // ------USB SETUP ----------------    
@@ -57,47 +70,29 @@ int main()
     #endif
     // USBUART
     RF_BT_SELECT_Write(0);
-// ------Motor----------------------
+// ------Motor SETUP----------------------
     PWM_1_Start();
     PWM_2_Start();
     M1_D1_Write(1);
     M1_D1_Write(1);
+// ------TIMER SETUP----------------------
+    Timer_1_Start();
+    isr_US_StartEx(isr_UpdateState);
     
-    for(;;)
-    {   
-        // Forward
-        if (!Vo2_Read() & !Vo3_Read() & !Vo4_Read() & Vo5_Read() & Vo6_Read() ){
-            next_Motion = FORWARD;
-        }        
-        // Turn Left
-        else if (!Vo2_Read() & !Vo3_Read() & !Vo5_Read() & Vo4_Read() & Vo6_Read()){
-            next_Motion = LEFT;
-        }        
-        // Turn Right
-        else if (!Vo2_Read() & !Vo3_Read() & !Vo6_Read() & Vo4_Read() & Vo5_Read()){
-            next_Motion = RIGHT;
-        }
-        current_Motion = next_Motion;
-        
-        if(current_Motion == FORWARD){
-            straightForward();
-            if((!Vo1_Read()) & Vo4_Read()){
-                M1_set_speed(PWM_1_ReadCompare()-1);            
-            }else if(Vo1_Read() & Vo4_Read() & Vo5_Read() & Vo6_Read()){
-                M2_set_speed(PWM_1_ReadCompare()+1); 
-            }
-        }else if (current_Motion == LEFT){
-            turnLeft();
-        }else if (current_Motion == RIGHT){
-            turnRight();
-        }
-
+    Timer_2_Start();
+    Timer_2_Sleep();
+    Timer_2_Init();
+    isr_T2_StartEx(isr_StopInterval);
+    
+    for(;;) 
+    {
+        decide_motion();
+        movement(current_Motion);
     }
-      
+
 }
 //* ========================================
-void usbPutString(char *s)
-{
+void usbPutString(char *s) {
 // !! Assumes that *s is a string with allocated space >=64 chars     
 //  Since USB implementation retricts data packets to 64 chars, this function truncates the
 //  length to 62 char (63rd char is a '!')
@@ -110,16 +105,14 @@ void usbPutString(char *s)
 #endif
 }
 //* ========================================
-void usbPutChar(char c)
-{
+void usbPutChar(char c) {
 #ifdef USE_USB     
     while (USBUART_CDCIsReady() == 0);
     USBUART_PutChar(c);
 #endif    
 }
 //* ========================================
-void handle_usb()
-{
+void handle_usb() {
     // handles input at terminal, echos it back to the terminal
     // turn echo OFF, key emulation: only CR
     // entered string is made available in 'line' and 'flag_KB_string' is set
@@ -173,9 +166,11 @@ void handle_usb()
 //* ========================================
 // Motor speed control
 void M1_set_speed(int num){
-    if (num > 100) {
+    if (num > 100) 
+    {
         num = 100;
-    } else if (num < 0) {
+    } else if (num < 0) 
+    {
         num = 0;
     }
     PWM_1_WriteCompare((double)(PWM_1_ReadPeriod()* num) / 100);
@@ -183,9 +178,11 @@ void M1_set_speed(int num){
     
 }
 void M2_set_speed(int num){
-    if (num > 100) {
+    if (num > 100) 
+    {
         num = 100;
-    } else if (num < 0) {
+    } else if (num < 0) 
+    {
         num = 0;
     }
     PWM_2_WriteCompare((double)(PWM_2_ReadPeriod()* (100 - num)) / 100);
@@ -194,6 +191,22 @@ void M2_set_speed(int num){
 }
 // Motion execution
 void movement(enum Motion_State motion) {
+    /*
+    if (motion == WAIT_STOP) {
+        Timer_1_Sleep();
+        Timer_1_Init();
+        
+        // Stop
+        M1_D1_Write(1);
+        M2_D1_Write(1);
+        
+        // enable timer2
+        Timer_2_Wakeup();
+        return;
+    }
+    */
+    Timer_1_Enable();
+    
     if (motion == FORWARD) {
         M1_set_speed(60);
         M2_set_speed(60);
@@ -206,9 +219,28 @@ void movement(enum Motion_State motion) {
     }
 }
 // decide motion
-
-
-//* ========================================
+void decide_motion() {
+    /*
+    // start detect the current position and decide the motion which need to take
+    if ((!Vo5_Read() || !Vo6_Read()) && Stop_flag) {
+        current_Motion = WAIT_STOP;
+        // not allow to stop again
+        Stop_flag = 0;
+    }
+    */
+    if (!Vo5_Read() && !Vo3_Read() && Vo1_Read() && Vo6_Read()) {
+        next_Motion = LEFT;
+    }
+    if (!Vo6_Read() && !Vo3_Read() && Vo1_Read() && Vo5_Read()) {
+        next_Motion = RIGHT;
+    }
+    if (!Vo1_Read() && !Vo3_Read() && Vo5_Read() && Vo6_Read()) {
+        next_Motion = FORWARD;
+    }
+    if (!Vo1_Read() && !Vo3_Read() && (current_Motion == LEFT || current_Motion == RIGHT)) {
+        next_Motion = FORWARD;
+    }
+}
 
 
 /* [] END OF FILE */
