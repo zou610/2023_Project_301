@@ -20,9 +20,6 @@
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\cydisabledsheets.h" value="HEADER;;;;;" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Clock_PWM.c" value="SOURCE_C;CortexM3;;;;Clock_PWM" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Clock_PWM.h" value="HEADER;;;;;Clock_PWM" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_D1_aliases.h" value="HEADER;;;;;M1_D1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_D1.c" value="SOURCE_C;CortexM3;;;;M1_D1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_D1.h" value="HEADER;;;;;M1_D1" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_D1_aliases.h" value="HEADER;;;;;M2_D1" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_D1.c" value="SOURCE_C;CortexM3;;;;M2_D1" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_D1.h" value="HEADER;;;;;M2_D1" />
@@ -44,12 +41,6 @@
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_QB_aliases.h" value="HEADER;;;;;M2_QB" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_QB.c" value="SOURCE_C;CortexM3;;;;M2_QB" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_QB.h" value="HEADER;;;;;M2_QB" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_C1_aliases.h" value="HEADER;;;;;M1_C1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_C1.c" value="SOURCE_C;CortexM3;;;;M1_C1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_C1.h" value="HEADER;;;;;M1_C1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_C1_aliases.h" value="HEADER;;;;;M2_C1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_C1.c" value="SOURCE_C;CortexM3;;;;M2_C1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_C1.h" value="HEADER;;;;;M2_C1" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\CONTROL.h" value="HEADER;;;;;CONTROL" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\CONTROL.c" value="SOURCE_C;CortexM3;;;;CONTROL" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\CONTROL_PM.c" value="SOURCE_C;CortexM3;;;;CONTROL" />
@@ -67,9 +58,9 @@
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_IN1_aliases.h" value="HEADER;;;;;M2_IN1" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_IN1.c" value="SOURCE_C;CortexM3;;;;M2_IN1" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M2_IN1.h" value="HEADER;;;;;M2_IN1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN2_aliases.h" value="HEADER;;;;;M1_IN2" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN2.c" value="SOURCE_C;CortexM3;;;;M1_IN2" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN2.h" value="HEADER;;;;;M1_IN2" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN1_aliases.h" value="HEADER;;;;;M1_IN1" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN1.c" value="SOURCE_C;CortexM3;;;;M1_IN1" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN1.h" value="HEADER;;;;;M1_IN1" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Timer_TS.c" value="SOURCE_C;CortexM3;;;;Timer_TS" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Timer_TS.h" value="HEADER;;;;;Timer_TS" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Timer_TS_PM.c" value="SOURCE_C;CortexM3;;;;Timer_TS" />
@@ -105,9 +96,9 @@
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\UART_PM.c" value="SOURCE_C;CortexM3;;;;UART" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\UART_INT.c" value="SOURCE_C;CortexM3;;;;UART" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\UART_BOOT.c" value="SOURCE_C;CortexM3;;;;UART" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN1_aliases.h" value="HEADER;;;;;M1_IN1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN1.c" value="SOURCE_C;CortexM3;;;;M1_IN1" />
-  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN1.h" value="HEADER;;;;;M1_IN1" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN2_aliases.h" value="HEADER;;;;;M1_IN2" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN2.c" value="SOURCE_C;CortexM3;;;;M1_IN2" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_IN2.h" value="HEADER;;;;;M1_IN2" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\LED_aliases.h" value="HEADER;;;;;LED" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\LED.c" value="SOURCE_C;CortexM3;;;;LED" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\LED.h" value="HEADER;;;;;LED" />
@@ -145,6 +136,16 @@
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Vo4_aliases.h" value="HEADER;;;;;Vo4" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Vo4.c" value="SOURCE_C;CortexM3;;;;Vo4" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Vo4.h" value="HEADER;;;;;Vo4" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Timer_Activate.c" value="SOURCE_C;CortexM3;;;;Timer_Activate" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Timer_Activate.h" value="HEADER;;;;;Timer_Activate" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Timer_Activate_PM.c" value="SOURCE_C;CortexM3;;;;Timer_Activate" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\isr_activate.c" value="SOURCE_C;CortexM3;;;;isr_activate" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\isr_activate.h" value="HEADER;;;;;isr_activate" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Clock2_1.c" value="SOURCE_C;CortexM3;;;;Clock2_1" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\Clock2_1.h" value="HEADER;;;;;Clock2_1" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_D1_aliases.h" value="HEADER;;;;;M1_D1" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_D1.c" value="SOURCE_C;CortexM3;;;;M1_D1" />
+  <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\M1_D1.h" value="HEADER;;;;;M1_D1" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\QuadDec_M1_Cnt16.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1_Cnt16" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\QuadDec_M1_Cnt16.h" value="HEADER;;;;;QuadDec_M1_Cnt16" />
   <file name="D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\codegentemp\QuadDec_M1_Cnt16_PM.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1_Cnt16" />

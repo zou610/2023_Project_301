@@ -35,8 +35,6 @@
 */        
 
 
-
-
         /* Input a integer to change PWM */
 /*
         if (flag_KB_string == 1)
@@ -79,4 +77,46 @@
         //current_state = RIGHTCROSS;
     }
         */
+    /*
+            if(flag_activate){
+            M1_set_speed(80);
+            M2_set_speed(80);
+            CyDelay(500);
+            movement(FORWARD);
+            flag_activate = 0;
+        }else{
+            movement(FORWARD);
+        }    
+    
+        */
+          
+        
+        // if(flag_encoder) {            
+            // encoder_counter1 = QuadDec_M1_GetCounter(); // 228 / 64.5 * 3.14; // 64.5 diameter // timer - 1s, [cm/s]
+            // encoder_counter2 = QuadDec_M2_GetCounter(); // 228 / 64.5 * 3.14; // 64.5 diameter // timer - 1s, [cm/s]
+            
+            // encoder_counter1 = encoder_counter1  / 228 * 64.5 * 3.14;
+            // encoder_counter2 = encoder_counter2  / 228 * 64.5 * 3.14;
+            
+            // //sprintf(line, "M1_speed: %.2lf, M2_speed: %.2lf ", encoder_counter1, encoder_counter2); 
+
+            // itoa(encoder_counter1, line, 10);
+            // usbPutString(line);
+            // usbPutString(" and ");
+
+            // itoa(encoder_counter2, line, 10);
+            // usbPutString(line);
+            // usbPutString("\n");
+            // usbPutString("\r");
+
+            // QuadDec_M1_SetCounter(0);
+            // QuadDec_M2_SetCounter(0);            
+
+            // flag_encoder = 0;
+        // }
+        
+
+        
+        
+    
 /* [] END OF FILE */

@@ -1,4 +1,5 @@
 D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysch
+D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\TopDesign\TopDesign.cysym
 D:\Year3\COMPSYS301\2023_Project_301\301_Motor_controller\Design_301_project.cydsn\TopDesign
 D:\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_clock_v2_20\cy_clock_v2_20.cyprimitive
 D:\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_clock_v2_20\cy_clock_v2_20.cysym
