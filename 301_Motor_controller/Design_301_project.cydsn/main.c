@@ -24,17 +24,11 @@
 #include "defines.h"
 #include "vars.h"
 //* ========================================
+#define ENCODER_EVENT_DIFFERENCE 5
+//* ========================================
 void usbPutString(char *s);
 void usbPutChar(char c);
 void handle_usb();
-//* ========================================
-void M1_set_speed();
-void M2_set_speed();
-void movement();
-void decide_motion();
-//* ========================================
-volatile enum Motion_State last_Motion, current_Motion, next_Motion;
-volatile int count = 0, Stop_flag = 1;
 //* ========================================
 enum Motion_State {
     FORWARD,
@@ -42,22 +36,52 @@ enum Motion_State {
     RIGHT, 
     BACKWARD,
     WAIT_STOP,
-    END
+    END,
+    OTHER
 };
-
+//* ========================================
+void M1_set_speed();
+void M2_set_speed();
+void movement(enum Motion_State);
+void decide_motion();
+void speed_balance();
+//* ========================================
+volatile enum Motion_State current_Motion = OTHER, next_Motion = OTHER;
+volatile int Stop_flag = 1, decoder_flag = 0, speed_flag = 0;
+volatile int count_waitstop = 0, count_encoder = 0, count_forward = 0;
+volatile int c_M1, c_M2, speed_M1 = 65, speed_M2 = 65;
+//* ========================================
 CY_ISR(isr_UpdateState) {
     current_Motion = next_Motion;
-    count++;
-    if (count == 10000) {
+    count_waitstop++;
+    count_encoder++;
+    // wait stop signal timer
+    if (count_waitstop == 200) {
         Stop_flag = 1;
-        count = 0;
+        count_waitstop = 0;
+    }
+    // encoder timer
+    if (count_encoder == 20) {
+        decoder_flag = 1;
+        count_encoder = 0;
+    }
+    // forward timer
+    if (current_Motion == FORWARD) {
+        count_forward++;
+    } else {
+        count_forward = 0;
+    }
+    if (count_forward >= 70) {
+        speed_flag = 1;
+    } else {
+        speed_flag = 0;
     }
 }
 CY_ISR(isr_StopInterval) {
     current_Motion = next_Motion;
     Timer_2_Sleep();
     Timer_2_Init();
-    count = 0;
+    count_waitstop = 0;
 }
 
 int main()
@@ -83,11 +107,36 @@ int main()
     Timer_2_Sleep();
     Timer_2_Init();
     isr_T2_StartEx(isr_StopInterval);
+// ------DECODER SETUP----------------------
+    QuadDec_M1_Start();
+    QuadDec_M2_Start();
+    QuadDec_M1_SetCounter(0);
+    QuadDec_M2_SetCounter(0);
     
     for(;;) 
     {
         decide_motion();
-        movement(current_Motion);
+        movement(FORWARD);
+        
+        if (decoder_flag) {
+            c_M1 = QuadDec_M1_GetCounter();
+            c_M2 = QuadDec_M2_GetCounter();
+            
+            QuadDec_M1_SetCounter(0);
+            QuadDec_M2_SetCounter(0);
+            
+            usbPutString("M1-");
+            usbPutString(itoa(c_M1, line, 10));
+            usbPutString(" and M2-");
+            usbPutString(itoa(c_M2, line, 10));
+            usbPutString("\n\r");
+            
+            decoder_flag = 0;
+        }
+        
+        if (speed_flag) {
+            speed_balance();
+        }
     }
 
 }
@@ -173,7 +222,7 @@ void M1_set_speed(int num){
     {
         num = 0;
     }
-    PWM_1_WriteCompare((double)(PWM_1_ReadPeriod()* num) / 100);
+    PWM_1_WriteCompare((double)(PWM_1_ReadPeriod()* (100 - num)) / 100);
     PWM_1_SaveConfig();
     
 }
@@ -185,7 +234,7 @@ void M2_set_speed(int num){
     {
         num = 0;
     }
-    PWM_2_WriteCompare((double)(PWM_2_ReadPeriod()* (100 - num)) / 100);
+    PWM_2_WriteCompare((double)(PWM_2_ReadPeriod()* num) / 100);
     PWM_2_SaveConfig();
     
 }
@@ -208,14 +257,29 @@ void movement(enum Motion_State motion) {
     Timer_1_Enable();
     
     if (motion == FORWARD) {
-        M1_set_speed(60);
-        M2_set_speed(60);
+        M1_set_speed(speed_M1);
+        M2_set_speed(speed_M2);
+        // start motor
+        M1_D1_Write(0);
+        M2_D1_Write(0);
     } else if (motion == LEFT) {
-        M1_set_speed(80);
-        M2_set_speed(30);
+        M1_set_speed(65);
+        M2_set_speed(35);
+        // start motor
+        M1_D1_Write(0);
+        M2_D1_Write(0);
     } else if (motion == RIGHT) {
-        M1_set_speed(30);
-        M2_set_speed(80);
+        M1_set_speed(35);
+        M2_set_speed(65);
+        // start motor
+        M1_D1_Write(0);
+        M2_D1_Write(0);
+    } else if (motion == OTHER) {
+        M1_set_speed(50);
+        M2_set_speed(50);
+        // stop motor
+        M1_D1_Write(1);
+        M2_D1_Write(1);
     }
 }
 // decide motion
@@ -228,19 +292,36 @@ void decide_motion() {
         Stop_flag = 0;
     }
     */
-    if (!Vo5_Read() && !Vo3_Read() && Vo1_Read() && Vo6_Read()) {
+    int state_assign = 1;
+    
+    if (!Vo5_Read() && !Vo2_Read() && Vo4_Read() && Vo6_Read()) {
         next_Motion = LEFT;
+        state_assign = 0;
     }
-    if (!Vo6_Read() && !Vo3_Read() && Vo1_Read() && Vo5_Read()) {
+    if (!Vo6_Read() && !Vo2_Read() && Vo4_Read() && Vo5_Read()) {
         next_Motion = RIGHT;
+        state_assign = 0;
     }
-    if (!Vo1_Read() && !Vo3_Read() && Vo5_Read() && Vo6_Read()) {
+    if (!Vo4_Read() && !Vo2_Read() && Vo5_Read() && Vo6_Read()) {
         next_Motion = FORWARD;
+        state_assign = 0;
     }
-    if (!Vo1_Read() && !Vo3_Read() && (current_Motion == LEFT || current_Motion == RIGHT)) {
+    if (!Vo4_Read() && !Vo2_Read() && Vo3_Read() && Vo1_Read()) {
         next_Motion = FORWARD;
+        state_assign = 0;
+    }
+    if (state_assign == 1) {
+        next_Motion = OTHER;
     }
 }
 
-
+void speed_balance() {
+    if (c_M2 > c_M1 + ENCODER_EVENT_DIFFERENCE) {
+        // M2 speed > M1 speed, M2 decelerate
+        speed_M2--;
+    } else if (c_M2 < c_M1 - ENCODER_EVENT_DIFFERENCE) {
+        // M2 speed < M1 speed, M2 accelerate
+        speed_M2++;
+    }
+}
 /* [] END OF FILE */

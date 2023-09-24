@@ -11,47 +11,15 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM3\ARM_GCC_541\Debug\Timer_1.o">
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\Timer_1.c" />
-<dep name=".\Generated_Source\PSoC5\Timer_1.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-</file>
-<file name=".\Generated_Source\PSoC5\CyFlash.h" />
-<file name=".\Generated_Source\PSoC5\CyLib.h" />
-<file name=".\Generated_Source\PSoC5\CySpc.h" />
-<file name=".\Generated_Source\PSoC5\Timer_1.c" />
-<file name=".\Generated_Source\PSoC5\Timer_1.h" />
-<file name=".\Generated_Source\PSoC5\cyPm.h" />
-<file name=".\Generated_Source\PSoC5\cydevice.h" />
-<file name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<file name=".\Generated_Source\PSoC5\cyfitter.h" />
-<file name=".\Generated_Source\PSoC5\cytypes.h" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\Timer_1_PM.o">
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\Timer_1.h" />
-<dep name=".\Generated_Source\PSoC5\Timer_1_PM.c" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-</file>
-<file name=".\Generated_Source\PSoC5\Timer_1_PM.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\main.o">
 <dep name=".\Generated_Source\PSoC5\CONTROL.h" />
 <dep name=".\Generated_Source\PSoC5\Clock2.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_PWM.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_QENC.h" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
 <dep name=".\Generated_Source\PSoC5\DB0.h" />
 <dep name=".\Generated_Source\PSoC5\DB0_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\DB1.h" />
@@ -87,6 +55,7 @@
 <dep name=".\Generated_Source\PSoC5\QuadDec_M2.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_M2_Cnt16.h" />
 <dep name=".\Generated_Source\PSoC5\RF_BT_SELECT.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_1.h" />
 <dep name=".\Generated_Source\PSoC5\Timer_2.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
@@ -119,24 +88,20 @@
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
 <dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
 <dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
 <dep name=".\Generated_Source\PSoC5\isrRF_RX.h" />
 <dep name=".\Generated_Source\PSoC5\isrRF_TX.h" />
 <dep name=".\Generated_Source\PSoC5\isr_T2.h" />
 <dep name=".\Generated_Source\PSoC5\isr_US.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\Timer_1.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
 <dep name=".\defines.h" />
 <dep name=".\main.c" />
 <dep name=".\vars.h" />
@@ -146,6 +111,9 @@
 <file name=".\Generated_Source\PSoC5\Clock_PWM.h" />
 <file name=".\Generated_Source\PSoC5\Clock_QENC.h" />
 <file name=".\Generated_Source\PSoC5\CyDmac.h" />
+<file name=".\Generated_Source\PSoC5\CyFlash.h" />
+<file name=".\Generated_Source\PSoC5\CyLib.h" />
+<file name=".\Generated_Source\PSoC5\CySpc.h" />
 <file name=".\Generated_Source\PSoC5\DB0.h" />
 <file name=".\Generated_Source\PSoC5\DB0_aliases.h" />
 <file name=".\Generated_Source\PSoC5\DB1.h" />
@@ -181,6 +149,7 @@
 <file name=".\Generated_Source\PSoC5\QuadDec_M2.h" />
 <file name=".\Generated_Source\PSoC5\QuadDec_M2_Cnt16.h" />
 <file name=".\Generated_Source\PSoC5\RF_BT_SELECT.h" />
+<file name=".\Generated_Source\PSoC5\Timer_1.h" />
 <file name=".\Generated_Source\PSoC5\Timer_2.h" />
 <file name=".\Generated_Source\PSoC5\UART.h" />
 <file name=".\Generated_Source\PSoC5\UART_IntClock.h" />
@@ -213,10 +182,15 @@
 <file name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <file name=".\Generated_Source\PSoC5\core_cm3.h" />
 <file name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<file name=".\Generated_Source\PSoC5\cyPm.h" />
 <file name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
+<file name=".\Generated_Source\PSoC5\cydevice.h" />
+<file name=".\Generated_Source\PSoC5\cydevice_trm.h" />
 <file name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<file name=".\Generated_Source\PSoC5\cyfitter.h" />
 <file name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <file name=".\Generated_Source\PSoC5\cypins.h" />
+<file name=".\Generated_Source\PSoC5\cytypes.h" />
 <file name=".\Generated_Source\PSoC5\isrRF_RX.h" />
 <file name=".\Generated_Source\PSoC5\isrRF_TX.h" />
 <file name=".\Generated_Source\PSoC5\isr_T2.h" />
@@ -225,6 +199,32 @@
 <file name=".\defines.h" />
 <file name=".\main.c" />
 <file name=".\vars.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Timer_1.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_1.c" />
+<dep name=".\Generated_Source\PSoC5\Timer_1.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\Timer_1.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Timer_1_PM.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_1.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_1_PM.c" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\Timer_1_PM.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\CONTROL.o">
 <dep name=".\Generated_Source\PSoC5\CONTROL.c" />
 <dep name=".\Generated_Source\PSoC5\CONTROL.h" />
@@ -2477,7 +2477,7 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="133400139412196935" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="133400251897728403" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
