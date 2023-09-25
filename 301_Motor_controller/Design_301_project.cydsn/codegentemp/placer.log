@@ -6,7 +6,7 @@
 
 #Build Date:         Sep  9 2019 11:47:43
 
-#File Generated:     Sep 24 2023 20:25:28
+#File Generated:     Sep 25 2023 14:32:31
 
 #Purpose:            
 
@@ -14,7 +14,7 @@
 
 #***************************************************************************
 
-Executing : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjplacer.exe --proj-name Design_301_project --netlist-vh2 Design_301_project_p.vh2 --arch p35_udb4x6 --arch-file C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata --ip-file C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/ip_blocks.cydata --rrg-file C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata --irq-file C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/irqconn.cydata --drq-file C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/dmaconn.cydata --dsi-conn-file C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/dsiconn.cydata --pins-file pins_68-QFN.xml --lib-file Design_301_project_p.lib --sdc-file Design_301_project.sdc --io-pcf Design_301_project.pci --outdir .
+Executing : D:\PSoC Creator\4.4\PSoC Creator\bin/sjplacer.exe --proj-name Design_301_project --netlist-vh2 Design_301_project_p.vh2 --arch p35_udb4x6 --arch-file D:\PSoC Creator\4.4\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata --ip-file D:\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/ip_blocks.cydata --rrg-file D:\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata --irq-file D:\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/irqconn.cydata --drq-file D:\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/dmaconn.cydata --dsi-conn-file D:\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/dsiconn.cydata --pins-file pins_68-QFN.xml --lib-file Design_301_project_p.lib --sdc-file Design_301_project.sdc --io-pcf Design_301_project.pci --outdir .
 
 		Softjin Techologies Placer, Version 1.1
 
@@ -23,7 +23,7 @@ Build Date : Sep  9 2019	11:45:12
 D2004: Option and Settings Summary
 =============================================================
 Netlist vh2 file          - Design_301_project_p.vh2
-Architecture file         - C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata
+Architecture file         - D:\PSoC Creator\4.4\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata
 Package                   - 
 Defparam file             - 
 SDC file                  - Design_301_project.sdc
@@ -34,7 +34,7 @@ IO Placement file         - Design_301_project.pci
 D2050: Starting reading inputs for placer
 =============================================================
 D2065: Reading netlist file : "Design_301_project_p.vh2"
-D2065: Reading arch file : "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata"
+D2065: Reading arch file : "D:\PSoC Creator\4.4\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata"
 D2051: Reading of inputs for placer completed successfully
 
 D2053: Starting placement of the design
@@ -96,7 +96,7 @@ Clock: UART_IntClock        | Frequency:  43.1 MHz | Target:   0.5 MHz
                      End of Clock Summary
 ######################################################################
 
-D2088: Phase 6, elapsed time : 0.1 (sec)
+D2088: Phase 6, elapsed time : 0.0 (sec)
 
 Phase 7
 ######################################################################
@@ -118,7 +118,7 @@ Clock: UART_IntClock        | Frequency:   2.2 MHz | Target:   0.5 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 0.6 (sec)
+D2088: Phase 7, elapsed time : 0.4 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	29
@@ -195,7 +195,7 @@ Clock: UART_IntClock        | Frequency:   2.1 MHz | Target:   0.5 MHz
                      End of Clock Summary
 ######################################################################
 
-D2088: Phase 6, elapsed time : 0.1 (sec)
+D2088: Phase 6, elapsed time : 0.0 (sec)
 
 Phase 7
 ######################################################################
@@ -217,7 +217,7 @@ Clock: UART_IntClock        | Frequency:   2.1 MHz | Target:   0.5 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 1.1 (sec)
+D2088: Phase 7, elapsed time : 0.7 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	29
@@ -269,5 +269,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 2.7 sec.
+I2076: Total run-time: 1.7 sec.
 

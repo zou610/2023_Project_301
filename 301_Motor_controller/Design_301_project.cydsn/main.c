@@ -24,7 +24,8 @@
 #include "defines.h"
 #include "vars.h"
 //* ========================================
-#define ENCODER_EVENT_DIFFERENCE 5
+#define ENCODER_M1 5
+#define ENCODER_M2 15
 //* ========================================
 void usbPutString(char *s);
 void usbPutChar(char c);
@@ -45,6 +46,8 @@ void M2_set_speed();
 void movement(enum Motion_State);
 void decide_motion();
 void speed_balance();
+char* enumToString(enum Motion_State);
+void bias_check();
 //* ========================================
 volatile enum Motion_State current_Motion = OTHER, next_Motion = OTHER;
 volatile int Stop_flag = 1, decoder_flag = 0, speed_flag = 0;
@@ -61,9 +64,13 @@ CY_ISR(isr_UpdateState) {
         count_waitstop = 0;
     }
     // encoder timer
-    if (count_encoder == 20) {
+    if (count_encoder == 5) {
         decoder_flag = 1;
         count_encoder = 0;
+        if (count_forward >= 5) {
+            speed_flag = 1;
+            count_forward = 0;
+        }
     }
     // forward timer
     if (current_Motion == FORWARD) {
@@ -71,10 +78,8 @@ CY_ISR(isr_UpdateState) {
     } else {
         count_forward = 0;
     }
-    if (count_forward >= 70) {
-        speed_flag = 1;
-    } else {
-        speed_flag = 0;
+    if (current_Motion == FORWARD) {
+        bias_check();
     }
 }
 CY_ISR(isr_StopInterval) {
@@ -116,29 +121,33 @@ int main()
     for(;;) 
     {
         decide_motion();
-        movement(FORWARD);
+        movement(current_Motion);
+        
         
         if (decoder_flag) {
             c_M1 = QuadDec_M1_GetCounter();
             c_M2 = QuadDec_M2_GetCounter();
             
+            if (speed_flag) {
+                speed_balance();
+                speed_flag = 0;
+            }
+            
             QuadDec_M1_SetCounter(0);
             QuadDec_M2_SetCounter(0);
             
-            usbPutString("M1-");
-            usbPutString(itoa(c_M1, line, 10));
-            usbPutString(" and M2-");
-            usbPutString(itoa(c_M2, line, 10));
-            usbPutString("\n\r");
+            //usbPutString("M1:");
+            //usbPutString(itoa(c_M1, line, 10));
+            //usbPutString(" and M2:");
+            //usbPutString(itoa(c_M2, line, 10));
+            //usbPutString("\t\t C_Motion - ");
+            //usbPutString(enumToString(current_Motion));
+            //usbPutString("\n\r");
+            
             
             decoder_flag = 0;
         }
-        
-        if (speed_flag) {
-            speed_balance();
-        }
     }
-
 }
 //* ========================================
 void usbPutString(char *s) {
@@ -214,7 +223,7 @@ void handle_usb() {
 }
 //* ========================================
 // Motor speed control
-void M1_set_speed(int num){
+void M1_set_speed(double num){
     if (num > 100) 
     {
         num = 100;
@@ -222,11 +231,11 @@ void M1_set_speed(int num){
     {
         num = 0;
     }
-    PWM_1_WriteCompare((double)(PWM_1_ReadPeriod()* (100 - num)) / 100);
+    PWM_1_WriteCompare(((double)PWM_1_ReadPeriod()* (100 - num)) / 100);
     PWM_1_SaveConfig();
     
 }
-void M2_set_speed(int num){
+void M2_set_speed(double num){
     if (num > 100) 
     {
         num = 100;
@@ -234,7 +243,7 @@ void M2_set_speed(int num){
     {
         num = 0;
     }
-    PWM_2_WriteCompare((double)(PWM_2_ReadPeriod()* num) / 100);
+    PWM_2_WriteCompare(((double)PWM_2_ReadPeriod()* num) / 100);
     PWM_2_SaveConfig();
     
 }
@@ -259,6 +268,7 @@ void movement(enum Motion_State motion) {
     if (motion == FORWARD) {
         M1_set_speed(speed_M1);
         M2_set_speed(speed_M2);
+        
         // start motor
         M1_D1_Write(0);
         M2_D1_Write(0);
@@ -269,7 +279,7 @@ void movement(enum Motion_State motion) {
         M1_D1_Write(0);
         M2_D1_Write(0);
     } else if (motion == RIGHT) {
-        M1_set_speed(35);
+        M1_set_speed(30);
         M2_set_speed(65);
         // start motor
         M1_D1_Write(0);
@@ -302,11 +312,11 @@ void decide_motion() {
         next_Motion = RIGHT;
         state_assign = 0;
     }
-    if (!Vo4_Read() && !Vo2_Read() && Vo5_Read() && Vo6_Read()) {
+    if ((!Vo1_Read() || !Vo3_Read()) && !Vo2_Read() && Vo5_Read() && Vo6_Read()) {
         next_Motion = FORWARD;
         state_assign = 0;
     }
-    if (!Vo4_Read() && !Vo2_Read() && Vo3_Read() && Vo1_Read()) {
+    if (!(Vo4_Read()) && !Vo2_Read() && Vo5_Read() && Vo6_Read()) {
         next_Motion = FORWARD;
         state_assign = 0;
     }
@@ -314,14 +324,59 @@ void decide_motion() {
         next_Motion = OTHER;
     }
 }
-
+/*
 void speed_balance() {
-    if (c_M2 > c_M1 + ENCODER_EVENT_DIFFERENCE) {
+    if (abs(c_M2) > abs(c_M1)) {
         // M2 speed > M1 speed, M2 decelerate
-        speed_M2--;
-    } else if (c_M2 < c_M1 - ENCODER_EVENT_DIFFERENCE) {
+        speed_M2 = speed_M2 - 3;
+    } else
+    if (abs(c_M2) < abs(c_M1) - ENCODER_M2_DE) {
         // M2 speed < M1 speed, M2 accelerate
         speed_M2++;
+    }
+}
+*/
+void speed_balance() {
+    if (c_M2 - abs(c_M1) > 0) {
+        // M2 speed > M1 speed, M2 decelerate
+        speed_M1 = speed_M1 + 4;
+    } else
+    if (c_M2 - abs(c_M1) < 0) {
+        // M2 speed < M1 speed, M2 accelerate
+        speed_M1--;
+    }
+}
+
+void bias_check() {
+    if (Vo1_Read() && !Vo3_Read() && Vo5_Read() && Vo6_Read()) {
+        speed_M1 = speed_M1 + 0.01;
+        //usbPutString(" Bias-set ");
+        return;
+    }
+    
+    if (!Vo1_Read() && Vo3_Read() && Vo5_Read() && Vo6_Read() && (speed_M1 > 51 && speed_M2 >51)) {
+        speed_M1 = speed_M1 - 0.01;
+        //usbPutString(" Bias-set ");
+        return;
+    }  
+    //usbPutString(" \tBias-not-set\t ");
+}
+
+char* enumToString(enum Motion_State state) {
+    if (state == FORWARD) {
+        return "FORWARD";
+    } else if (state == LEFT) {
+        return "LEFT";
+    } else if (state == RIGHT) {
+        return "RIGHT";
+    } else if (state == BACKWARD) {
+        return "BACKWARD";
+    } else if (state == WAIT_STOP) {
+        return "WAIT_STOP";
+    } else if (state == END) {
+        return "END";
+    } else {
+        return "OTHER";
     }
 }
 /* [] END OF FILE */
