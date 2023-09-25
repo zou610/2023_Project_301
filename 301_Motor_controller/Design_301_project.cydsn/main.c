@@ -38,7 +38,8 @@ enum Motion_State {
     BACKWARD,
     WAIT_STOP,
     END,
-    OTHER
+    OTHER,
+    BIAS
 };
 //* ========================================
 void M1_set_speed();
@@ -50,19 +51,22 @@ char* enumToString(enum Motion_State);
 void bias_check();
 //* ========================================
 volatile enum Motion_State current_Motion = OTHER, next_Motion = OTHER;
-volatile int Stop_flag = 1, decoder_flag = 0, speed_flag = 0;
+volatile int Stop_flag = 1, decoder_flag = 0, speed_flag = 0, left_flag = 0, right_flag = 0;
 volatile int count_waitstop = 0, count_encoder = 0, count_forward = 0;
-volatile int c_M1, c_M2, speed_M1 = 65, speed_M2 = 65;
+volatile int c_M1, c_M2;
+volatile double speed_M1 = 65, speed_M2 = 65, bias_M1 = 0, bias_M2 = 0;
 //* ========================================
 CY_ISR(isr_UpdateState) {
     current_Motion = next_Motion;
-    count_waitstop++;
     count_encoder++;
+    /*
+    count_waitstop++;
     // wait stop signal timer
     if (count_waitstop == 200) {
         Stop_flag = 1;
         count_waitstop = 0;
     }
+    */
     // encoder timer
     if (count_encoder == 5) {
         decoder_flag = 1;
@@ -78,15 +82,9 @@ CY_ISR(isr_UpdateState) {
     } else {
         count_forward = 0;
     }
-    if (current_Motion == FORWARD) {
-        bias_check();
-    }
 }
 CY_ISR(isr_StopInterval) {
-    current_Motion = next_Motion;
-    Timer_2_Sleep();
-    Timer_2_Init();
-    count_waitstop = 0;
+    
 }
 
 int main()
@@ -128,22 +126,24 @@ int main()
             c_M1 = QuadDec_M1_GetCounter();
             c_M2 = QuadDec_M2_GetCounter();
             
+            /*
             if (speed_flag) {
                 speed_balance();
                 speed_flag = 0;
             }
-            
+            */
             QuadDec_M1_SetCounter(0);
             QuadDec_M2_SetCounter(0);
             
-            //usbPutString("M1:");
-            //usbPutString(itoa(c_M1, line, 10));
-            //usbPutString(" and M2:");
-            //usbPutString(itoa(c_M2, line, 10));
-            //usbPutString("\t\t C_Motion - ");
-            //usbPutString(enumToString(current_Motion));
-            //usbPutString("\n\r");
-            
+            /*
+            usbPutString("M1:");
+            usbPutString(itoa(c_M1, line, 10));
+            usbPutString(" and M2:");
+            usbPutString(itoa(c_M2, line, 10));
+            usbPutString("\t\t C_Motion - ");
+            usbPutString(enumToString(current_Motion));
+            usbPutString("\n\r");
+            */
             
             decoder_flag = 0;
         }
@@ -264,23 +264,31 @@ void movement(enum Motion_State motion) {
     }
     */
     Timer_1_Enable();
-    
-    if (motion == FORWARD) {
-        M1_set_speed(speed_M1);
-        M2_set_speed(speed_M2);
+    if (motion == BIAS) {
+        bias_check();
+        M1_set_speed(speed_M1 + bias_M1);
+        M2_set_speed(speed_M2 + bias_M2);
+        
+        // start motor
+        M1_D1_Write(0);
+        M2_D1_Write(0);
+
+    } else if (motion == FORWARD) {
+        M1_set_speed(speed_M1 + bias_M1);
+        M2_set_speed(speed_M2 + bias_M2);
         
         // start motor
         M1_D1_Write(0);
         M2_D1_Write(0);
     } else if (motion == LEFT) {
-        M1_set_speed(65);
-        M2_set_speed(35);
+        M1_set_speed(30);
+        M2_set_speed(55);
         // start motor
         M1_D1_Write(0);
         M2_D1_Write(0);
     } else if (motion == RIGHT) {
-        M1_set_speed(30);
-        M2_set_speed(65);
+        M1_set_speed(60);
+        M2_set_speed(35);
         // start motor
         M1_D1_Write(0);
         M2_D1_Write(0);
@@ -302,27 +310,39 @@ void decide_motion() {
         Stop_flag = 0;
     }
     */
-    int state_assign = 1;
+    if ((!Vo3_Read()||!Vo6_Read() || bias_M1 != 0) && !left_flag && !right_flag) {
+        if (!Vo3_Read() && !Vo4_Read() && !Vo2_Read()) {
+            left_flag = 1;
+        } else if (!Vo6_Read() && !Vo4_Read()) {
+            right_flag = 1;
+        }
+        next_Motion = BIAS;
+        return;
+    }
     
-    if (!Vo5_Read() && !Vo2_Read() && Vo4_Read() && Vo6_Read()) {
+    if (!Vo5_Read() && Vo3_Read() && Vo4_Read() && Vo6_Read()) {
+        left_flag = 0;
         next_Motion = LEFT;
-        state_assign = 0;
+        return;
     }
-    if (!Vo6_Read() && !Vo2_Read() && Vo4_Read() && Vo5_Read()) {
+    if (!Vo1_Read() && Vo3_Read() && Vo4_Read() && Vo6_Read()) {
+        right_flag = 0;
         next_Motion = RIGHT;
-        state_assign = 0;
+        return;
     }
-    if ((!Vo1_Read() || !Vo3_Read()) && !Vo2_Read() && Vo5_Read() && Vo6_Read()) {
+    
+    if (!Vo2_Read() && !Vo4_Read()) {
         next_Motion = FORWARD;
-        state_assign = 0;
+        return;
     }
-    if (!(Vo4_Read()) && !Vo2_Read() && Vo5_Read() && Vo6_Read()) {
-        next_Motion = FORWARD;
-        state_assign = 0;
-    }
+    
+    left_flag = 0;
+    right_flag = 0;
+    /*
     if (state_assign == 1) {
         next_Motion = OTHER;
     }
+    */
 }
 /*
 void speed_balance() {
@@ -336,6 +356,7 @@ void speed_balance() {
     }
 }
 */
+/*
 void speed_balance() {
     if (c_M2 - abs(c_M1) > 0) {
         // M2 speed > M1 speed, M2 decelerate
@@ -346,19 +367,34 @@ void speed_balance() {
         speed_M1--;
     }
 }
-
+*/
 void bias_check() {
-    if (Vo1_Read() && !Vo3_Read() && Vo5_Read() && Vo6_Read()) {
-        speed_M1 = speed_M1 + 0.01;
+    if (!Vo3_Read() && Vo6_Read() && ((bias_M1 + speed_M1) > 51)) {
+        bias_M1 = bias_M1 - 0.0007;
         //usbPutString(" Bias-set ");
         return;
     }
-    
-    if (!Vo1_Read() && Vo3_Read() && Vo5_Read() && Vo6_Read() && (speed_M1 > 51 && speed_M2 >51)) {
-        speed_M1 = speed_M1 - 0.01;
+    if (!Vo6_Read() && Vo3_Read()) {
+        bias_M1 = bias_M1 + 0.001;
+        bias_M2 = -9;
         //usbPutString(" Bias-set ");
         return;
-    }  
+    } 
+    
+    if (Vo3_Read() && Vo6_Read()) {
+        if (bias_M1 > 0.000001) {
+            bias_M1 /= 2;
+            bias_M2 = 0;
+        } else if (bias_M1 < -0.000001) {
+            bias_M1 /= 2;
+            bias_M2 = 0;
+        } else {
+            bias_M1 = 0;
+            bias_M2 = 0;
+        }
+        //usbPutString(" Bias-set ");
+        return;
+    }
     //usbPutString(" \tBias-not-set\t ");
 }
 
