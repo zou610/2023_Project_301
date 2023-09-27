@@ -24,8 +24,8 @@
                     1::Clock Frequency Summary
 ===================================================================== 
 Number of clocks: 11
-Clock: Clock2                     | N/A                   | Target: 0.00 MHz   | 
-Clock: Clock2(fixed-function)     | N/A                   | Target: 0.00 MHz   | 
+Clock: Clock2                     | N/A                   | Target: 0.10 MHz   | 
+Clock: Clock2(fixed-function)     | N/A                   | Target: 0.10 MHz   | 
 Clock: Clock_PWM                  | N/A                   | Target: 1.00 MHz   | 
 Clock: Clock_PWM(fixed-function)  | N/A                   | Target: 1.00 MHz   | 
 Clock: Clock_QENC                 | Frequency: 39.83 MHz  | Target: 12.00 MHz  | 

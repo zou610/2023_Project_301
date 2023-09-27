@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
   28:Generated_Source\PSoC5/M2_QB.c **** *
   29:Generated_Source\PSoC5/M2_QB.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/M2_QB.c **** *  and shifting the bits appropriately. 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 2
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 2
 
 
   31:Generated_Source\PSoC5/M2_QB.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
   52              		.size	M2_QB_Write, .-M2_QB_Write
   53              		.section	.text.M2_QB_SetDriveMode,"ax",%progbits
   54              		.align	2
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 3
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 3
 
 
   55              		.global	M2_QB_SetDriveMode
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
   77 0012 00BF     		.align	2
   78              	.L5:
   79 0014 01500040 		.word	1073762305
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 4
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 4
 
 
   80              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  110              		.align	2
  111              		.global	M2_QB_ReadDataReg
  112              		.thumb
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 5
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 5
 
 
  113              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  139              	.Ldebug_info0:
  140 0000 1B010000 		.4byte	0x11b
  141 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 6
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 6
 
 
  142 0006 00000000 		.4byte	.Ldebug_abbrev0
@@ -307,14 +307,14 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  145 000c 44000000 		.4byte	.LASF20
  146 0010 0C       		.byte	0xc
  147 0011 00000000 		.4byte	.LASF21
- 148 0015 E9000000 		.4byte	.LASF22
+ 148 0015 3F010000 		.4byte	.LASF22
  149 0019 00000000 		.4byte	.Ldebug_ranges0+0
  150 001d 00000000 		.4byte	0
  151 0021 00000000 		.4byte	.Ldebug_line0
  152 0025 02       		.uleb128 0x2
  153 0026 01       		.byte	0x1
  154 0027 06       		.byte	0x6
- 155 0028 D5010000 		.4byte	.LASF0
+ 155 0028 D3010000 		.4byte	.LASF0
  156 002c 02       		.uleb128 0x2
  157 002d 01       		.byte	0x1
  158 002e 08       		.byte	0x8
@@ -322,15 +322,15 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  160 0033 02       		.uleb128 0x2
  161 0034 02       		.byte	0x2
  162 0035 05       		.byte	0x5
- 163 0036 A5010000 		.4byte	.LASF2
+ 163 0036 A3010000 		.4byte	.LASF2
  164 003a 02       		.uleb128 0x2
  165 003b 02       		.byte	0x2
  166 003c 07       		.byte	0x7
- 167 003d 3C010000 		.4byte	.LASF3
+ 167 003d E9000000 		.4byte	.LASF3
  168 0041 02       		.uleb128 0x2
  169 0042 04       		.byte	0x4
  170 0043 05       		.byte	0x5
- 171 0044 CC010000 		.4byte	.LASF4
+ 171 0044 CA010000 		.4byte	.LASF4
  172 0048 02       		.uleb128 0x2
  173 0049 04       		.byte	0x4
  174 004a 07       		.byte	0x7
@@ -338,11 +338,11 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  176 004f 02       		.uleb128 0x2
  177 0050 08       		.byte	0x8
  178 0051 05       		.byte	0x5
- 179 0052 92010000 		.4byte	.LASF6
+ 179 0052 90010000 		.4byte	.LASF6
  180 0056 02       		.uleb128 0x2
  181 0057 08       		.byte	0x8
  182 0058 07       		.byte	0x7
- 183 0059 63010000 		.4byte	.LASF7
+ 183 0059 10010000 		.4byte	.LASF7
  184 005d 03       		.uleb128 0x3
  185 005e 04       		.byte	0x4
  186 005f 05       		.byte	0x5
@@ -350,15 +350,15 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  188 0064 02       		.uleb128 0x2
  189 0065 04       		.byte	0x4
  190 0066 07       		.byte	0x7
- 191 0067 56010000 		.4byte	.LASF8
+ 191 0067 03010000 		.4byte	.LASF8
  192 006b 04       		.uleb128 0x4
- 193 006c BB010000 		.4byte	.LASF12
+ 193 006c B9010000 		.4byte	.LASF12
  194 0070 02       		.byte	0x2
  195 0071 E901     		.2byte	0x1e9
  196 0073 2C000000 		.4byte	0x2c
  197 0077 02       		.uleb128 0x2
  198 0078 04       		.byte	0x4
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 7
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 7
 
 
  199 0079 04       		.byte	0x4
@@ -366,11 +366,11 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  201 007e 02       		.uleb128 0x2
  202 007f 08       		.byte	0x8
  203 0080 04       		.byte	0x4
- 204 0081 4F010000 		.4byte	.LASF10
+ 204 0081 FC000000 		.4byte	.LASF10
  205 0085 02       		.uleb128 0x2
  206 0086 01       		.byte	0x1
  207 0087 08       		.byte	0x8
- 208 0088 A0010000 		.4byte	.LASF11
+ 208 0088 9E010000 		.4byte	.LASF11
  209 008c 04       		.uleb128 0x4
  210 008d D2000000 		.4byte	.LASF13
  211 0091 02       		.byte	0x2
@@ -379,7 +379,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  214 0098 05       		.uleb128 0x5
  215 0099 6B000000 		.4byte	0x6b
  216 009d 06       		.uleb128 0x6
- 217 009e AF010000 		.4byte	.LASF14
+ 217 009e AD010000 		.4byte	.LASF14
  218 00a2 01       		.byte	0x1
  219 00a3 39       		.byte	0x39
  220 00a4 00000000 		.4byte	.LFB0
@@ -402,7 +402,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  237 00cd 53       		.byte	0x53
  238 00ce 00       		.byte	0
  239 00cf 06       		.uleb128 0x6
- 240 00d0 7F010000 		.4byte	.LASF15
+ 240 00d0 2C010000 		.4byte	.LASF15
  241 00d4 01       		.byte	0x1
  242 00d5 5A       		.byte	0x5a
  243 00d6 00000000 		.4byte	.LFB1
@@ -411,17 +411,17 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  246 00df 9C       		.byte	0x9c
  247 00e0 F4000000 		.4byte	0xf4
  248 00e4 07       		.uleb128 0x7
- 249 00e5 7A010000 		.4byte	.LASF17
+ 249 00e5 27010000 		.4byte	.LASF17
  250 00e9 01       		.byte	0x1
  251 00ea 5A       		.byte	0x5a
  252 00eb 6B000000 		.4byte	0x6b
  253 00ef 21000000 		.4byte	.LLST1
  254 00f3 00       		.byte	0
  255 00f4 09       		.uleb128 0x9
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 8
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 8
 
 
- 256 00f5 C1010000 		.4byte	.LASF18
+ 256 00f5 BF010000 		.4byte	.LASF18
  257 00f9 01       		.byte	0x1
  258 00fa 71       		.byte	0x71
  259 00fb 6B000000 		.4byte	0x6b
@@ -430,7 +430,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  262 0107 01       		.uleb128 0x1
  263 0108 9C       		.byte	0x9c
  264 0109 09       		.uleb128 0x9
- 265 010a E1010000 		.4byte	.LASF19
+ 265 010a DF010000 		.4byte	.LASF19
  266 010e 01       		.byte	0x1
  267 010f 8D       		.byte	0x8d
  268 0110 6B000000 		.4byte	0x6b
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  310 0022 0B       		.uleb128 0xb
  311 0023 3E       		.uleb128 0x3e
  312 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 9
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 9
 
 
  313 0025 03       		.uleb128 0x3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  367 005c 3A       		.uleb128 0x3a
  368 005d 0B       		.uleb128 0xb
  369 005e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 10
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 10
 
 
  370 005f 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  424 000a 50       		.byte	0x50
  425 000b 0A000000 		.4byte	.LVL2
  426 000f 18000000 		.4byte	.LFE0
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 11
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 11
 
 
  427 0013 0400     		.2byte	0x4
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  480      02004200 
  480      00000201 
  480      FB0E0D00 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 12
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 12
 
 
  480      01010101 
@@ -708,85 +708,85 @@ ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 1
  498      69676E65 
  498      6420696E 
  498      7400
- 499              	.LASF22:
- 500 00e9 443A5C59 		.ascii	"D:\\Year3\\COMPSYS301\\2023_Project_301\\301_Motor_"
- 500      65617233 
- 500      5C434F4D 
- 500      50535953 
- 500      3330315C 
- 501 0118 636F6E74 		.ascii	"controller\\Design_301_project.cydsn\000"
- 501      726F6C6C 
- 501      65725C44 
- 501      65736967 
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 13
+ 499              	.LASF3:
+ 500 00e9 73686F72 		.ascii	"short unsigned int\000"
+ 500      7420756E 
+ 500      7369676E 
+ 500      65642069 
+ 500      6E7400
+ 501              	.LASF10:
+ 502 00fc 646F7562 		.ascii	"double\000"
+ 502      6C6500
+ 503              	.LASF8:
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 13
 
 
- 501      6E5F3330 
- 502              	.LASF3:
- 503 013c 73686F72 		.ascii	"short unsigned int\000"
- 503      7420756E 
- 503      7369676E 
- 503      65642069 
- 503      6E7400
- 504              	.LASF10:
- 505 014f 646F7562 		.ascii	"double\000"
- 505      6C6500
- 506              	.LASF8:
- 507 0156 756E7369 		.ascii	"unsigned int\000"
- 507      676E6564 
- 507      20696E74 
- 507      00
- 508              	.LASF7:
- 509 0163 6C6F6E67 		.ascii	"long long unsigned int\000"
- 509      206C6F6E 
- 509      6720756E 
- 509      7369676E 
- 509      65642069 
- 510              	.LASF17:
- 511 017a 6D6F6465 		.ascii	"mode\000"
- 511      00
- 512              	.LASF15:
- 513 017f 4D325F51 		.ascii	"M2_QB_SetDriveMode\000"
- 513      425F5365 
- 513      74447269 
- 513      76654D6F 
- 513      646500
+ 504 0103 756E7369 		.ascii	"unsigned int\000"
+ 504      676E6564 
+ 504      20696E74 
+ 504      00
+ 505              	.LASF7:
+ 506 0110 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 506      206C6F6E 
+ 506      6720756E 
+ 506      7369676E 
+ 506      65642069 
+ 507              	.LASF17:
+ 508 0127 6D6F6465 		.ascii	"mode\000"
+ 508      00
+ 509              	.LASF15:
+ 510 012c 4D325F51 		.ascii	"M2_QB_SetDriveMode\000"
+ 510      425F5365 
+ 510      74447269 
+ 510      76654D6F 
+ 510      646500
+ 511              	.LASF22:
+ 512 013f 433A5C55 		.ascii	"C:\\Users\\18285\\Desktop\\301\\Project\\301_Motor_"
+ 512      73657273 
+ 512      5C313832 
+ 512      38355C44 
+ 512      65736B74 
+ 513 016c 636F6E74 		.ascii	"controller\\Design_301_project.cydsn\000"
+ 513      726F6C6C 
+ 513      65725C44 
+ 513      65736967 
+ 513      6E5F3330 
  514              	.LASF6:
- 515 0192 6C6F6E67 		.ascii	"long long int\000"
+ 515 0190 6C6F6E67 		.ascii	"long long int\000"
  515      206C6F6E 
  515      6720696E 
  515      7400
  516              	.LASF11:
- 517 01a0 63686172 		.ascii	"char\000"
+ 517 019e 63686172 		.ascii	"char\000"
  517      00
  518              	.LASF2:
- 519 01a5 73686F72 		.ascii	"short int\000"
+ 519 01a3 73686F72 		.ascii	"short int\000"
  519      7420696E 
  519      7400
  520              	.LASF14:
- 521 01af 4D325F51 		.ascii	"M2_QB_Write\000"
+ 521 01ad 4D325F51 		.ascii	"M2_QB_Write\000"
  521      425F5772 
  521      69746500 
  522              	.LASF12:
- 523 01bb 75696E74 		.ascii	"uint8\000"
+ 523 01b9 75696E74 		.ascii	"uint8\000"
  523      3800
  524              	.LASF18:
- 525 01c1 4D325F51 		.ascii	"M2_QB_Read\000"
+ 525 01bf 4D325F51 		.ascii	"M2_QB_Read\000"
  525      425F5265 
  525      616400
  526              	.LASF4:
- 527 01cc 6C6F6E67 		.ascii	"long int\000"
+ 527 01ca 6C6F6E67 		.ascii	"long int\000"
  527      20696E74 
  527      00
-ARM GAS  C:\Users\User\AppData\Local\Temp\ccI7vcqt.s 			page 14
+ARM GAS  C:\Users\18285\AppData\Local\Temp\ccP4wJnj.s 			page 14
 
 
  528              	.LASF0:
- 529 01d5 7369676E 		.ascii	"signed char\000"
+ 529 01d3 7369676E 		.ascii	"signed char\000"
  529      65642063 
  529      68617200 
  530              	.LASF19:
- 531 01e1 4D325F51 		.ascii	"M2_QB_ReadDataReg\000"
+ 531 01df 4D325F51 		.ascii	"M2_QB_ReadDataReg\000"
  531      425F5265 
  531      61644461 
  531      74615265 

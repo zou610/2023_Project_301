@@ -2,7 +2,7 @@
 --	Conversion of Design_301_project.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Sep 25 14:32:30 2023
+--	Tue Sep 26 13:27:39 2023
 --
 
 USE cypress.cypress.all;
@@ -2612,7 +2612,7 @@ Clock2:cy_clock_v1_0
 		id=>"4c992dc7-2721-4e82-beca-fd2bdf776a66",
 		source_clock_id=>"315365C3-2E3E-4f04-84A2-BB564A173261",
 		divisor=>0,
-		period=>"10000000000000",
+		period=>"10000000000",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_244,

@@ -21,280 +21,174 @@
 #include <math.h>
 #include <project.h>
 //* ========================================
-#include "defines.h"
-#include "vars.h"
+#include "self_functions.h"
+
+//* ======== Variable ==================
 //* ========================================
-#define ENCODER_M1 5
-#define ENCODER_M2 15
+volatile enum Motion_State 
+current_Motion = FORWARD, 
+next_Motion = FORWARD;
+
+volatile int 
+flag_encoder = 0,
+flag_bias = 0
+;
+
+volatile int 
+count_encoder = 0,
+count_check_stop = 0
+;
+
+volatile int 
+c_M1, 
+c_M2,
+c_sum = -2100;
+;
+
+volatile int 
+v1, 
+v2,
+v3,
+v4,
+v5,
+v6
+;
+
+volatile double 
+speed_M1 = 30,
+speed_M2 = 30,
+bias_M1 = 0, 
+bias_M2 = 0,
+p = 0,
+target = 100
+;
+
+//* ======== DECLARATION ===================
 //* ========================================
-void usbPutString(char *s);
-void usbPutChar(char c);
-void handle_usb();
-//* ========================================
-enum Motion_State {
-    FORWARD,
-    LEFT, 
-    RIGHT, 
-    BACKWARD,
-    WAIT_STOP,
-    END,
-    OTHER,
-    BIAS
-};
-//* ========================================
-void M1_set_speed();
-void M2_set_speed();
 void movement(enum Motion_State);
 void decide_motion();
 void speed_balance();
-char* enumToString(enum Motion_State);
 void bias_check();
-//* ========================================
-volatile enum Motion_State current_Motion = OTHER, next_Motion = OTHER;
-volatile int Stop_flag = 1, decoder_flag = 0, speed_flag = 0, left_flag = 0, right_flag = 0;
-volatile int count_waitstop = 0, count_encoder = 0, count_forward = 0;
-volatile int c_M1, c_M2;
-volatile double speed_M1 = 65, speed_M2 = 65, bias_M1 = 0, bias_M2 = 0;
+
+//* ======== ISR ===========================
 //* ========================================
 CY_ISR(isr_UpdateState) {
     current_Motion = next_Motion;
     count_encoder++;
-    /*
-    count_waitstop++;
-    // wait stop signal timer
-    if (count_waitstop == 200) {
-        Stop_flag = 1;
-        count_waitstop = 0;
-    }
-    */
     // encoder timer
-    if (count_encoder == 5) {
-        decoder_flag = 1;
+    if (count_encoder == 10000) {
+        flag_encoder = 1;
         count_encoder = 0;
-        if (count_forward >= 5) {
-            speed_flag = 1;
-            count_forward = 0;
-        }
-    }
-    // forward timer
-    if (current_Motion == FORWARD) {
-        count_forward++;
-    } else {
-        count_forward = 0;
     }
 }
-CY_ISR(isr_StopInterval) {
-    
+CY_ISR(assignment) {
+    v1 = Vo1_Read();
+    v2 = Vo2_Read();
+    v3 = Vo3_Read();
+    v4 = Vo4_Read();
+    v5 = Vo5_Read();
+    v6 = Vo6_Read();
 }
 
 int main()
 {   
 // ----- INITIALIZATIONS ----------
     CYGlobalIntEnable;
-// ------USB SETUP ----------------    
+    init();
+// ------USB SETUP----------------    
     #ifdef USE_USB    
         USBUART_Start(0,USBUART_5V_OPERATION);
     #endif
-    // USBUART
-    RF_BT_SELECT_Write(0);
-// ------Motor SETUP----------------------
-    PWM_1_Start();
-    PWM_2_Start();
-    M1_D1_Write(1);
-    M1_D1_Write(1);
+// ------USBUART----------------------
+    RF_BT_SELECT_Write(0);    
 // ------TIMER SETUP----------------------
     Timer_1_Start();
     isr_US_StartEx(isr_UpdateState);
     
     Timer_2_Start();
-    Timer_2_Sleep();
-    Timer_2_Init();
-    isr_T2_StartEx(isr_StopInterval);
-// ------DECODER SETUP----------------------
-    QuadDec_M1_Start();
-    QuadDec_M2_Start();
-    QuadDec_M1_SetCounter(0);
-    QuadDec_M2_SetCounter(0);
+    isr_T2_StartEx(assignment);
     
     for(;;) 
     {
+        if (!v3 || !v6 || bias_M1 != 0 || bias_M2 != 0) {
+            if (!v3 || v6) {
+                bias_M1 = -5;
+                bias_M2 = 5;
+            } else if (!v6 || v3) {
+                bias_M1 = 5;
+                bias_M2 = -5;
+            } else if ((v3 && v6) || flag_bias){
+                bias_M1 = 0;
+                bias_M2 = 0;
+            }
+        }
+
+        /*
+        if (c_sum >= (target / (64.5 * 3.14)) * 228) {
+            flag_stop = 1;
+            M1_D1_Write(1);
+            M2_D1_Write(1);
+            LED_Write(1);
+            
+        }
+        */
         decide_motion();
         movement(current_Motion);
         
-        
-        if (decoder_flag) {
+        if (flag_encoder) {
             c_M1 = QuadDec_M1_GetCounter();
             c_M2 = QuadDec_M2_GetCounter();
             
-            /*
-            if (speed_flag) {
-                speed_balance();
-                speed_flag = 0;
-            }
-            */
             QuadDec_M1_SetCounter(0);
             QuadDec_M2_SetCounter(0);
             
-            /*
-            usbPutString("M1:");
-            usbPutString(itoa(c_M1, line, 10));
-            usbPutString(" and M2:");
-            usbPutString(itoa(c_M2, line, 10));
-            usbPutString("\t\t C_Motion - ");
-            usbPutString(enumToString(current_Motion));
-            usbPutString("\n\r");
-            */
+            if (current_Motion == FORWARD){
+                speed_balance();
+            }
             
-            decoder_flag = 0;
+            flag_encoder = 0;
         }
-    }
-}
-//* ========================================
-void usbPutString(char *s) {
-// !! Assumes that *s is a string with allocated space >=64 chars     
-//  Since USB implementation retricts data packets to 64 chars, this function truncates the
-//  length to 62 char (63rd char is a '!')
 
-#ifdef USE_USB     
-    while (USBUART_CDCIsReady() == 0);
-    s[63]='\0';
-    s[62]='!';
-    USBUART_PutData((uint8*)s,strlen(s));
-#endif
+    }
 }
-//* ========================================
-void usbPutChar(char c) {
-#ifdef USE_USB     
-    while (USBUART_CDCIsReady() == 0);
-    USBUART_PutChar(c);
-#endif    
-}
-//* ========================================
-void handle_usb() {
-    // handles input at terminal, echos it back to the terminal
-    // turn echo OFF, key emulation: only CR
-    // entered string is made available in 'line' and 'flag_KB_string' is set
-    
-    static uint8 usbStarted = FALSE;
-    static uint16 usbBufCount = 0;
-    uint8 c; 
-    
 
-    if (!usbStarted)
-    {
-        if (USBUART_GetConfiguration())
-        {
-            USBUART_CDC_Init();
-            usbStarted = TRUE;
-        }
-    }
-    else
-    {
-        if (USBUART_DataIsReady() != 0)
-        {  
-            c = USBUART_GetChar();
 
-            if ((c == 13) || (c == 10))
-            {
-                if (usbBufCount > 0)
-                {
-                    entry[usbBufCount]= '\0';
-                    strcpy(line,entry);
-                    usbBufCount = 0;
-                    flag_KB_string = 1;
-                }
-            }
-            else 
-            {
-                if (((c == CHAR_BACKSP) || (c == CHAR_DEL) ) && (usbBufCount > 0) )
-                    usbBufCount--;
-                else
-                {
-                    if (usbBufCount > (BUF_SIZE-2) ) // one less else strtok triggers a crash
-                    {
-                       USBUART_PutChar('!');        
-                    }
-                    else
-                        entry[usbBufCount++] = c;  
-                }  
-            }
-        }
-    }    
-}
 //* ========================================
-// Motor speed control
-void M1_set_speed(double num){
-    if (num > 100) 
-    {
-        num = 100;
-    } else if (num < 0) 
-    {
-        num = 0;
-    }
-    PWM_1_WriteCompare(((double)PWM_1_ReadPeriod()* (100 - num)) / 100);
-    PWM_1_SaveConfig();
-    
-}
-void M2_set_speed(double num){
-    if (num > 100) 
-    {
-        num = 100;
-    } else if (num < 0) 
-    {
-        num = 0;
-    }
-    PWM_2_WriteCompare(((double)PWM_2_ReadPeriod()* num) / 100);
-    PWM_2_SaveConfig();
-    
-}
 // Motion execution
 void movement(enum Motion_State motion) {
-    /*
-    if (motion == WAIT_STOP) {
-        Timer_1_Sleep();
-        Timer_1_Init();
+    
+    Timer_1_Enable();
+    if (motion == FORWARD) {
+        M1_set_speed(1, speed_M1 + bias_M1);
+        M2_set_speed(1, speed_M2 + bias_M2);
+        // start motor
+        M1_D1_Write(0);
+        M2_D1_Write(0);
         
-        // Stop
+    } else if (motion == LEFT) {        
+        M1_set_speed(0, 35.0);
+        M2_set_speed(1, 30.0);
+        // start motor
+        M1_D1_Write(0);
+        M2_D1_Write(0);
+        
+    } else if (motion == RIGHT) {
+        M1_set_speed(1, 35.0);
+        M2_set_speed(0, 30.0);
+        // start motor
+        M1_D1_Write(0);
+        M2_D1_Write(0);
+        
+    } else if (motion == OTHER) {        
+        M1_set_speed(1, 0.0);
+        M2_set_speed(1, 0.0);
+        // stop motor
         M1_D1_Write(1);
         M2_D1_Write(1);
         
-        // enable timer2
-        Timer_2_Wakeup();
-        return;
-    }
-    */
-    Timer_1_Enable();
-    if (motion == BIAS) {
-        bias_check();
-        M1_set_speed(speed_M1 + bias_M1);
-        M2_set_speed(speed_M2 + bias_M2);
-        
-        // start motor
-        M1_D1_Write(0);
-        M2_D1_Write(0);
-
-    } else if (motion == FORWARD) {
-        M1_set_speed(speed_M1 + bias_M1);
-        M2_set_speed(speed_M2 + bias_M2);
-        
-        // start motor
-        M1_D1_Write(0);
-        M2_D1_Write(0);
-    } else if (motion == LEFT) {
-        M1_set_speed(30);
-        M2_set_speed(55);
-        // start motor
-        M1_D1_Write(0);
-        M2_D1_Write(0);
-    } else if (motion == RIGHT) {
-        M1_set_speed(60);
-        M2_set_speed(35);
-        // start motor
-        M1_D1_Write(0);
-        M2_D1_Write(0);
-    } else if (motion == OTHER) {
-        M1_set_speed(50);
-        M2_set_speed(50);
+    } else if (motion == WAIT_STOP){
+        M1_set_speed(1, 0.0);
+        M2_set_speed(1, 0.0);
         // stop motor
         M1_D1_Write(1);
         M2_D1_Write(1);
@@ -302,117 +196,41 @@ void movement(enum Motion_State motion) {
 }
 // decide motion
 void decide_motion() {
-    /*
-    // start detect the current position and decide the motion which need to take
-    if ((!Vo5_Read() || !Vo6_Read()) && Stop_flag) {
-        current_Motion = WAIT_STOP;
-        // not allow to stop again
-        Stop_flag = 0;
-    }
-    */
-    if ((!Vo3_Read()||!Vo6_Read() || bias_M1 != 0) && !left_flag && !right_flag) {
-        if (!Vo3_Read() && !Vo4_Read() && !Vo2_Read()) {
-            left_flag = 1;
-        } else if (!Vo6_Read() && !Vo4_Read()) {
-            right_flag = 1;
-        }
-        next_Motion = BIAS;
+    
+    if ( (!v4 && (current_Motion == RIGHT || current_Motion == LEFT))) {
+        next_Motion = FORWARD;
+        flag_bias = 1;
         return;
     }
-    
-    if (!Vo5_Read() && Vo3_Read() && Vo4_Read() && Vo6_Read()) {
-        left_flag = 0;
+
+    if (!v5 && v3 && v4 && v6 && v1) { // && Vo3_Read() && Vo4_Read() && Vo6_Read()
         next_Motion = LEFT;
         return;
     }
-    if (!Vo1_Read() && Vo3_Read() && Vo4_Read() && Vo6_Read()) {
-        right_flag = 0;
+    
+    if (!v1 && v3 && v4 && v6 && v5) { // && Vo3_Read() && Vo4_Read() && Vo6_Read()
         next_Motion = RIGHT;
         return;
     }
+
     
-    if (!Vo2_Read() && !Vo4_Read()) {
+    if (!v2 && !v4) {
+        next_Motion = FORWARD;
+        flag_bias = 0;
+        return;
+    }
+    if ((!v3 && current_Motion == LEFT) || (!v6 &&  current_Motion == RIGHT)) {
         next_Motion = FORWARD;
         return;
     }
-    
-    left_flag = 0;
-    right_flag = 0;
-    /*
-    if (state_assign == 1) {
-        next_Motion = OTHER;
-    }
-    */
-}
-/*
-void speed_balance() {
-    if (abs(c_M2) > abs(c_M1)) {
-        // M2 speed > M1 speed, M2 decelerate
-        speed_M2 = speed_M2 - 3;
-    } else
-    if (abs(c_M2) < abs(c_M1) - ENCODER_M2_DE) {
-        // M2 speed < M1 speed, M2 accelerate
-        speed_M2++;
-    }
-}
-*/
-/*
-void speed_balance() {
-    if (c_M2 - abs(c_M1) > 0) {
-        // M2 speed > M1 speed, M2 decelerate
-        speed_M1 = speed_M1 + 4;
-    } else
-    if (c_M2 - abs(c_M1) < 0) {
-        // M2 speed < M1 speed, M2 accelerate
-        speed_M1--;
-    }
-}
-*/
-void bias_check() {
-    if (!Vo3_Read() && Vo6_Read() && ((bias_M1 + speed_M1) > 51)) {
-        bias_M1 = bias_M1 - 0.0007;
-        //usbPutString(" Bias-set ");
-        return;
-    }
-    if (!Vo6_Read() && Vo3_Read()) {
-        bias_M1 = bias_M1 + 0.001;
-        bias_M2 = -9;
-        //usbPutString(" Bias-set ");
-        return;
-    } 
-    
-    if (Vo3_Read() && Vo6_Read()) {
-        if (bias_M1 > 0.000001) {
-            bias_M1 /= 2;
-            bias_M2 = 0;
-        } else if (bias_M1 < -0.000001) {
-            bias_M1 /= 2;
-            bias_M2 = 0;
-        } else {
-            bias_M1 = 0;
-            bias_M2 = 0;
-        }
-        //usbPutString(" Bias-set ");
-        return;
-    }
-    //usbPutString(" \tBias-not-set\t ");
 }
 
-char* enumToString(enum Motion_State state) {
-    if (state == FORWARD) {
-        return "FORWARD";
-    } else if (state == LEFT) {
-        return "LEFT";
-    } else if (state == RIGHT) {
-        return "RIGHT";
-    } else if (state == BACKWARD) {
-        return "BACKWARD";
-    } else if (state == WAIT_STOP) {
-        return "WAIT_STOP";
-    } else if (state == END) {
-        return "END";
-    } else {
-        return "OTHER";
+// use the ratio to control the speed
+void speed_balance() {
+    double ratio = (double) abs(c_M2) / abs(c_M1);
+    if (ratio > 1) {
+        ratio = 1;
     }
+    speed_M1 = 2 + speed_M2 + speed_M2 * ratio * 0.2;
 }
 /* [] END OF FILE */

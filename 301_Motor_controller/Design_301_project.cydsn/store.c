@@ -116,7 +116,87 @@
         // }
         
 
+        /*
+void speed_balance() {
+    if (abs(c_M2) > abs(c_M1)) {
+        // M2 speed > M1 speed, M2 decelerate
+        speed_M2 = speed_M2 - 3;
+    } else
+    if (abs(c_M2) < abs(c_M1) - ENCODER_M2_DE) {
+        // M2 speed < M1 speed, M2 accelerate
+        speed_M2++;
+    }
+}
+*/
+/*
+void speed_balance() {
+    if (c_M2 - abs(c_M1) > 0) {
+        // M2 speed > M1 speed, M2 decelerate
+        speed_M1 = speed_M1 + 4;
+    } else
+    if (c_M2 - abs(c_M1) < 0) {
+        // M2 speed < M1 speed, M2 accelerate
+        speed_M1--;
+    }
+}
+*/
         
+        /*
+    // start detect the current position and decide the motion which need to take
+    if ((!Vo5_Read() || !Vo6_Read()) && Stop_flag) {
+        current_Motion = WAIT_STOP;
+        // not allow to stop again
+        Stop_flag = 0;
+    }
         
+    
+        
+    void bias_check() {
+    if (!Vo3_Read() && Vo6_Read() && ((bias_M1 + speed_M1) > 50)) {
+        bias_M1 = bias_M1 - 0.0007;
+        //usbPutString(" Bias-set ");
+        return;
+    }
+    if (!Vo6_Read() && Vo3_Read()) {
+        bias_M1 = bias_M1 + 0.001;
+        bias_M2 = -9;
+        //usbPutString(" Bias-set ");
+        return;
+    } 
+    
+    if (Vo3_Read() && Vo6_Read()) {
+        if (bias_M1 > 0.000001) {
+            bias_M1 /= 2;
+            bias_M2 = 0;
+        } else if (bias_M1 < -0.000001) {
+            bias_M1 /= 2;
+            bias_M2 = 0;
+        } else {
+            bias_M1 = 0;
+            bias_M2 = 0;
+        }
+        //usbPutString(" Bias-set ");
+        return;
+    }
+    //usbPutString(" \tBias-not-set\t ");
+}
+    
+
+       
+    if (motion == WAIT_STOP) {
+        Timer_1_Sleep();
+        Timer_1_Init();
+        
+        // Stop
+        M1_D1_Write(1);
+        M2_D1_Write(1);
+        
+        // enable timer2
+        Timer_2_Wakeup();
+        return;
+    }
+    */
+    
+    
     
 /* [] END OF FILE */
